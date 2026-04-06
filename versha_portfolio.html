@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Versha — Creative Content & AI Video Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #0f0e0d;
+    --cream: #f5f0e8;
+    --warm: #ede5d8;
+    --gold: #c8953a;
+    --gold-light: #f0d89a;
+    --rust: #b84b2a;
+    --forest: #2a4a3a;
+    --muted: #6b6358;
+    --card-bg: #faf7f2;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+    --mono: 'Space Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* ── CUSTOM CURSOR ── */
+  .cursor {
+    position: fixed; width: 12px; height: 12px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+  }
+  .cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1.5px solid var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease;
+    opacity: 0.6;
+  }
+  body:hover .cursor { opacity: 1; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(245, 240, 232, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200, 149, 58, 0.15);
+  }
+  .nav-logo {
+    font-family: var(--serif); font-size: 1.3rem; font-weight: 700;
+    letter-spacing: -0.02em; color: var(--ink); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+    border: 1.5px solid var(--gold); color: var(--gold);
+    padding: 0.55rem 1.4rem; text-decoration: none; font-weight: 500;
+    transition: all 0.25s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--cream); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh; display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 4rem;
+    padding-top: 6rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding-right: 3rem; padding-bottom: 4rem;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem;
+  }
+  .hero-tag::before {
+    content: ''; display: block; width: 28px; height: 1.5px; background: var(--gold);
+  }
+  h1.hero-name {
+    font-family: var(--serif); font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 900; line-height: 0.95; letter-spacing: -0.03em;
+    color: var(--ink); margin-bottom: 0.4rem;
+  }
+  h1.hero-name em { font-style: italic; color: var(--gold); }
+  .hero-title {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 2rem;
+    border-left: 3px solid var(--rust); padding-left: 1rem;
+  }
+  .hero-desc {
+    font-size: 1rem; line-height: 1.75; color: var(--muted);
+    max-width: 420px; margin-bottom: 2.5rem; font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary {
+    background: var(--ink); color: var(--cream);
+    padding: 0.85rem 2rem; font-size: 0.82rem; letter-spacing: 0.08em;
+    text-transform: uppercase; font-weight: 500; text-decoration: none;
+    transition: all 0.25s; border: 2px solid var(--ink);
+  }
+  .btn-primary:hover { background: var(--gold); border-color: var(--gold); }
+  .btn-ghost {
+    color: var(--ink); padding: 0.85rem 2rem; font-size: 0.82rem;
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+    text-decoration: none; border: 2px solid rgba(15,14,13,0.25);
+    transition: all 0.25s;
+  }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .hero-right {
+    display: flex; align-items: center; justify-content: center;
+    position: relative; padding-bottom: 4rem;
+  }
+  .hero-visual {
+    position: relative; width: 100%; max-width: 420px;
+  }
+  .hero-card-main {
+    background: var(--ink); color: var(--cream);
+    padding: 3rem 2.5rem; position: relative; z-index: 2;
+    animation: float 5s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .hero-card-main h2 {
+    font-family: var(--serif); font-size: 1.6rem; font-weight: 700;
+    line-height: 1.2; margin-bottom: 1.2rem;
+  }
+  .hero-card-main h2 em { color: var(--gold-light); font-style: italic; }
+  .stat-row { display: flex; gap: 2rem; margin-top: 1.8rem; }
+  .stat { }
+  .stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--gold-light); }
+  .stat-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; }
+  .hero-card-accent {
+    position: absolute; bottom: -1.5rem; right: -1.5rem;
+    background: var(--gold); color: var(--ink);
+    padding: 1.2rem 1.5rem; z-index: 1;
+    font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+    animation: float 5s ease-in-out infinite 1s;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+  .hero-scroll svg { opacity: 0.5; }
+  .hero-bg-text {
+    position: absolute; bottom: 3rem; left: 4rem;
+    font-family: var(--serif); font-size: clamp(6rem, 12vw, 14rem);
+    font-weight: 900; color: transparent;
+    -webkit-text-stroke: 1px rgba(200,149,58,0.12);
+    pointer-events: none; line-height: 1; user-select: none;
+    z-index: 0;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 4rem; position: relative; }
+  .section-tag {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+  h2.section-title {
+    font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  h2.section-title em { font-style: italic; color: var(--gold); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--ink); color: var(--cream); }
+  #about h2.section-title em { color: var(--gold-light); }
+  #about .section-tag { color: var(--gold-light); }
+  #about .section-tag::before { background: var(--gold-light); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { font-size: 1rem; line-height: 1.85; font-weight: 300; opacity: 0.82; margin-bottom: 1.2rem; }
+  .about-text p strong { font-weight: 500; color: var(--gold-light); }
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .tool-chip {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.7rem 1rem; font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8;
+    transition: all 0.2s;
+  }
+  .tool-chip:hover { background: rgba(200,149,58,0.15); border-color: rgba(200,149,58,0.4); opacity: 1; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .about-stat { border-left: 2px solid var(--gold-light); padding-left: 1.5rem; }
+  .about-stat .num { font-family: var(--serif); font-size: 3rem; font-weight: 700; color: var(--gold-light); line-height: 1; }
+  .about-stat .label { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.55; margin-top: 0.3rem; }
+  .about-stat .desc { font-size: 0.85rem; opacity: 0.65; margin-top: 0.5rem; line-height: 1.5; }
+  .experience-list { margin-top: 2.5rem; }
+  .exp-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0; }
+  .exp-item:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+  .exp-header { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
+  .exp-role { font-size: 0.9rem; font-weight: 500; }
+  .exp-company { font-size: 0.8rem; opacity: 0.55; margin-top: 0.2rem; }
+  .exp-period { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; color: var(--gold-light); white-space: nowrap; opacity: 0.8; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--warm); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .skill-card {
+    background: var(--card-bg); border: 1px solid rgba(0,0,0,0.07);
+    padding: 1.8rem; position: relative; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .skill-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .skill-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .skill-card:hover::before { transform: scaleX(1); }
+  .skill-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .skill-card h3 { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.8rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-tag {
+    background: var(--warm); border: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.68rem; padding: 0.3rem 0.6rem; letter-spacing: 0.04em;
+    color: var(--muted); font-family: var(--mono);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--cream); }
+  .projects-intro {
+    display: flex; justify-content: space-between; align-items: end;
+    margin-bottom: 3.5rem;
+  }
+  .projects-intro p { font-size: 1rem; line-height: 1.7; color: var(--muted); max-width: 380px; font-weight: 300; }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .project-card {
+    background: var(--card-bg); border: 1px solid rgba(0,0,0,0.07);
+    overflow: hidden; transition: transform 0.3s;
+  }
+  .project-card:hover { transform: translateY(-6px); }
+  .project-card:hover .project-img-overlay { opacity: 1; }
+  .project-img {
+    height: 180px; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #f8f2e8 0%, #ede1cf 100%);
+  }
+  .project-img img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+  .project-img.project-img-logo {
+    padding: 1rem;
+    background:
+      radial-gradient(circle at top, rgba(240, 216, 154, 0.35), transparent 55%),
+      linear-gradient(135deg, #fbf7f0 0%, #efe2d1 100%);
+  }
+  .project-img.project-img-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    filter: drop-shadow(0 10px 20px rgba(15, 14, 13, 0.08));
+  }
+  .project-img-letter {
+    font-family: var(--serif); font-size: 5rem; font-weight: 900;
+    color: rgba(255,255,255,0.08); line-height: 1; user-select: none;
+  }
+  .project-img-overlay {
+    position: absolute; inset: 0;
+    background: rgba(200,149,58,0.85);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .project-img-overlay a {
+    color: var(--ink); font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+    border: 2px solid var(--ink); padding: 0.6rem 1.4rem; font-family: var(--mono);
+  }
+  .project-type-badge {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--gold); color: var(--ink);
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.3rem 0.7rem; font-weight: 700;
+  }
+  .project-body { padding: 1.5rem; }
+  .project-body h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.3; }
+  .project-body p { font-size: 0.82rem; line-height: 1.65; color: var(--muted); font-weight: 300; }
+  .project-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.07); }
+  .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .project-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); }
+  .project-link {
+    font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    border-bottom: 1px solid transparent; transition: all 0.2s;
+  }
+  .project-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* Featured project */
+  .project-card.featured {
+    grid-column: span 1;
+  }
+  .project-card.featured .project-img { height: 180px; }
+
+  /* Social media projects */
+  .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .social-card {
+    background: var(--ink); color: var(--cream); padding: 2rem 1.8rem;
+    position: relative; overflow: hidden; transition: transform 0.3s;
+  }
+  .social-card-image {
+    width: calc(100% + 3.6rem);
+    height: 150px;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+    margin: -2rem -1.8rem 1.5rem;
+    padding: 0.75rem 1rem;
+    background:
+      radial-gradient(circle at top, rgba(240, 216, 154, 0.18), transparent 60%),
+      linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .social-card:hover { transform: translateY(-4px); }
+  .social-card::after {
+    content: ''; position: absolute; bottom: -2rem; right: -2rem;
+    width: 8rem; height: 8rem; border-radius: 50%;
+    border: 1.5px solid rgba(200,149,58,0.2);
+  }
+  .social-platform { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
+  .social-card h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.8rem; }
+  .social-card p { font-size: 0.82rem; line-height: 1.7; opacity: 0.65; font-weight: 300; margin-bottom: 1.5rem; }
+  .social-services { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+  .social-service {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 0.28rem 0.6rem; color: rgba(255,255,255,0.6);
+  }
+  .social-link {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold-light); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(200,149,58,0.3);
+    padding-bottom: 2px; transition: all 0.2s;
+  }
+  .social-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--ink); color: var(--cream); text-align: center; }
+  #contact h2.section-title { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+  #contact h2.section-title em { color: var(--gold-light); }
+  #contact .section-tag { color: var(--gold-light); justify-content: center; }
+  #contact .section-tag::before { background: var(--gold-light); }
+  .contact-subtitle { font-size: 1rem; opacity: 0.6; font-weight: 300; margin: 1rem 0 3rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.12); padding: 1.5rem 2.5rem;
+    text-decoration: none; color: var(--cream); transition: all 0.25s; min-width: 160px;
+  }
+  .contact-link:hover { background: rgba(200,149,58,0.12); border-color: rgba(200,149,58,0.5); }
+  .contact-link-icon { font-size: 1.5rem; }
+  .contact-link-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; }
+  .contact-link-value { font-size: 0.85rem; font-weight: 400; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center;
+    color: rgba(255,255,255,0.3); font-size: 0.75rem; font-family: var(--mono);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ── DIVIDER ── */
+  .marquee-strip {
+    background: var(--gold); padding: 0.8rem 0; overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner { display: inline-block; animation: marquee 18s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-text {
+    display: inline-block; margin: 0 2rem;
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink);
+  }
+
+  /* ── FADE IN ANIMATIONS ── */
+  .fade-up {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    #hero { grid-template-columns: 1fr; padding: 0 1.5rem; padding-top: 6rem; }
+    .hero-right { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; }
+    .social-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">V<span>.</span>ersha</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:vershatanwar621@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">V</div>
+  <div class="hero-left fade-up">
+    <span class="hero-tag">Available for freelance</span>
+    <h1 class="hero-name">
+      Creative<br><em>Content</em><br>&amp; AI Design
+    </h1>
+    <p class="hero-title">UI/UX · AI Video · Social Media · Branding</p>
+    <p class="hero-desc">
+      I craft scroll-stopping content, build brands that breathe, and turn AI tools into competitive advantages. 5+ years of design thinking across screens, socials, and stories.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-ghost">Let's Talk</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual fade-up" style="transition-delay:0.2s">
+      <div class="hero-card-main">
+        <h2>Designing for the <em>AI era</em> — one frame at a time.</h2>
+        <p style="font-size:0.82rem; opacity:0.6; line-height:1.7; font-weight:300; margin-top:0.8rem;">From wireframes to viral reels, I bridge the gap between thoughtful UX and high-impact content creation.</p>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years Exp.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Live Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Brands Managed</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card-accent">AI · UX · Content · Video</div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg width="14" height="24" viewBox="0 0 14 24" fill="none">
+      <rect x="1" y="1" width="12" height="22" rx="6" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="7" cy="7" r="2" fill="currentColor"/>
+    </svg>
+    Scroll
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span class="marquee-text">UI/UX Design</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">AI Video Generation</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">Social Media Management</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">Brand Identity</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">Content Creation</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">Video Editing</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">UI/UX Design</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">AI Video Generation</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">Social Media Management</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">Brand Identity</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">Content Creation</span>
+    <span class="marquee-text">✦</span>
+    <span class="marquee-text">Video Editing</span>
+    <span class="marquee-text">✦</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <div class="section-tag">About Me</div>
+      <h2 class="section-title">Where <em>creativity</em> meets strategy</h2>
+      <p>I'm Versha — a Faridabad-based designer with <strong>5+ years</strong> across UI/UX, AI content creation, graphic design, and social media management. I don't just make things look good; I make them <strong>work</strong>.</p>
+      <p>My edge? I operate fluently across two worlds — the precision of UX research and wireframing, and the instinct of a content creator who knows what makes people stop, watch, and engage.</p>
+      <p>Currently at <strong>JBH Tech Innovation</strong>, I design LMS platforms by day and craft AI-generated video content using Grok AI, Luma AI, and Pictory — tools that most designers are still figuring out.</p>
+      <div class="tools-grid" style="margin-top:2rem;">
+        <div class="tool-chip">Figma / Adobe XD</div>
+        <div class="tool-chip">Grok AI · Luma AI</div>
+        <div class="tool-chip">Pictory · Pika · Runway</div>
+        <div class="tool-chip">CapCut · Filmora</div>
+        <div class="tool-chip">Photoshop · Illustrator</div>
+        <div class="tool-chip">Canva · Premiere Pro</div>
+      </div>
+    </div>
+    <div class="fade-up" style="transition-delay:0.15s">
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="num">5+</div>
+          <div class="label">Years of Experience</div>
+          <div class="desc">Across design, content, and digital marketing</div>
+        </div>
+        <div class="about-stat">
+          <div class="num">8+</div>
+          <div class="label">Live Projects</div>
+          <div class="desc">Shipped and live across industries</div>
+        </div>
+        <div class="about-stat">
+          <div class="num">3</div>
+          <div class="label">Brands Managed</div>
+          <div class="desc">End-to-end social presence, strategy to publish</div>
+        </div>
+        <div class="about-stat">
+          <div class="num">∞</div>
+          <div class="label">Ideas Per Day</div>
+          <div class="desc">Relentlessly curious, constantly creating</div>
+        </div>
+      </div>
+      <div class="experience-list" style="margin-top:3rem;">
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">UI/UX Designer & Content Specialist</div>
+              <div class="exp-company">JBH Tech Innovation</div>
+            </div>
+            <div class="exp-period">Dec 2024 – Present</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Graphic Designer & Digital Marketing Exec</div>
+              <div class="exp-company">Cyber Beast – Creative Agency</div>
+            </div>
+            <div class="exp-period">Apr – Dec 2024</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Graphic Designer</div>
+              <div class="exp-company">Hodor Infosec</div>
+            </div>
+            <div class="exp-period">Nov 2023 – Mar 2024</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Graphic Designer</div>
+              <div class="exp-company">Karmacargomovers</div>
+            </div>
+            <div class="exp-period">Mar 2021 – Nov 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">What I Do</div>
+  <h2 class="section-title">Skills &amp; <em>Expertise</em></h2>
+  <div class="skills-grid">
+    <div class="skill-card fade-up">
+      <div class="skill-icon">🎬</div>
+      <h3>AI Video Creation</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Grok AI</span>
+        <span class="skill-tag">Luma AI</span>
+        <span class="skill-tag">Pictory</span>
+        <span class="skill-tag">Veo</span>
+        <span class="skill-tag">Runway</span>
+        <span class="skill-tag">Pika</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up" style="transition-delay:0.05s">
+      <div class="skill-icon">✂️</div>
+      <h3>Video Editing</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">CapCut</span>
+        <span class="skill-tag">Filmora</span>
+        <span class="skill-tag">Premiere Pro</span>
+        <span class="skill-tag">Final Cut Pro</span>
+        <span class="skill-tag">Short-form Reels</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up" style="transition-delay:0.1s">
+      <div class="skill-icon">🎨</div>
+      <h3>UI/UX Design</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Adobe XD</span>
+        <span class="skill-tag">Wireframing</span>
+        <span class="skill-tag">Prototyping</span>
+        <span class="skill-tag">Design Systems</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up" style="transition-delay:0.15s">
+      <div class="skill-icon">📱</div>
+      <h3>Social Media</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Instagram</span>
+        <span class="skill-tag">LinkedIn</span>
+        <span class="skill-tag">YouTube</span>
+        <span class="skill-tag">Content Strategy</span>
+        <span class="skill-tag">Carousels</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up" style="transition-delay:0.2s">
+      <div class="skill-icon">🖋️</div>
+      <h3>Graphic Design</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Photoshop</span>
+        <span class="skill-tag">Illustrator</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">Brand Identity</span>
+        <span class="skill-tag">Packaging</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up" style="transition-delay:0.25s">
+      <div class="skill-icon">📦</div>
+      <h3>E-commerce Content</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Amazon A+</span>
+        <span class="skill-tag">Product Listing</span>
+        <span class="skill-tag">Mockup Design</span>
+        <span class="skill-tag">Photo Retouching</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE 2 -->
+<div class="marquee-strip" style="background: var(--forest);">
+  <div class="marquee-inner" style="animation-direction: reverse;">
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Figma</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Grok AI</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Luma AI</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Runway</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">CapCut</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Photoshop</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Illustrator</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Pictory</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Figma</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Grok AI</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Luma AI</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Runway</span>
+    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-intro fade-up">
+    <div>
+      <div class="section-tag">Selected Work</div>
+      <h2 class="section-title">Projects &amp; <em>Case Studies</em></h2>
+    </div>
+    <p>Live products, shipped experiences, and real brand impact — from EdTech platforms to industrial marketplaces.</p>
+  </div>
+
+  <div class="projects-grid">
+    <!-- Featured -->
+    <div class="project-card featured fade-up">
+      <div class="project-img project-img-logo">
+        <img src="image/Vedify.jpeg" alt="VedifAI project preview">
+        <div class="project-type-badge">EdTech · UI/UX</div>
+        <div class="project-img-overlay">
+          <a href="https://vedifai.com/#home" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>VedifAI — Hybrid Learning Management Platform</h3>
+        <p>Designed end-to-end UX for an EdTech platform enabling hybrid online and offline learning. Student registration, course enrollment, class scheduling — all on a single clean, mobile-first interface. The goal: make learning feel effortless, not institutional.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">Figma</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">Responsive</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">UX Research</span>
+          </div>
+          <a href="https://vedifai.com/#home" target="_blank" rel="noopener" class="project-link">vedifai.com ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.1s">
+      <div class="project-img project-img-logo">
+        <img src="image/Supplyverge.jpeg" alt="SupplyVerge marketplace preview">
+        <div class="project-type-badge">B2B · UI/UX</div>
+        <div class="project-img-overlay">
+          <a href="https://supplyverge.com" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>SupplyVerge — Industrial B2B Marketplace</h3>
+        <p>UX for an industrial components platform serving business procurement users. Product specs, category navigation, inquiry workflows — designed for efficiency over aesthetics.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">UI/UX</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">B2B</span>
+          </div>
+          <a href="https://supplyverge.com" target="_blank" rel="noopener" class="project-link">supplyverge.com ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.15s">
+      <div class="project-img project-img-logo">
+        <img src="image/Yufmart.jpeg" alt="TheYouthMart e-commerce preview">
+        <div class="project-type-badge">E-Commerce</div>
+        <div class="project-img-overlay">
+          <a href="https://theyouthmart.com" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>TheYouthMart — E-Commerce Store</h3>
+        <p>Vibrant shopping experience for a stationery & sports brand. Product listings, cart, checkout — optimised for mobile-first shoppers.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">E-Commerce</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">Responsive</span>
+          </div>
+          <a href="https://theyouthmart.com" target="_blank" rel="noopener" class="project-link">theyouthmart.com ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.2s">
+      <div class="project-img project-img-logo">
+        <img src="image/Jbh.jpeg" alt="Gagan Billing app preview">
+        <div class="project-type-badge">SaaS · UI</div>
+        <div class="project-img-overlay">
+          <a href="https://gagan-billing-ufr9.vercel.app" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>Gagan Billing App</h3>
+        <p>Fast, intuitive billing software for small businesses. Invoice generation and transaction management — designed for non-technical users with zero friction.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">UI Design</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">SaaS</span>
+          </div>
+          <a href="https://gagan-billing-ufr9.vercel.app" target="_blank" rel="noopener" class="project-link">View App ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.25s">
+      <div class="project-img project-img-logo">
+        <img src="image/Airship.jpeg" alt="Airship India awareness platform preview">
+        <div class="project-type-badge">Awareness · UI</div>
+        <div class="project-img-overlay">
+          <a href="https://airshipindia.com" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>Airship India — Air Pollution Awareness</h3>
+        <p>Public health awareness platform presenting pollution data, safety guides, and product solutions with a clean, minimal UI built for maximum readability.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">UI Design</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">Editorial</span>
+          </div>
+          <a href="https://airshipindia.com" target="_blank" rel="noopener" class="project-link">airshipindia.com ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="project-card fade-up" style="transition-delay:0.3s">
+      <div class="project-img project-img-logo">
+        <img src="image/Jbh.jpeg" alt="JBH Tech Innovation LMS preview">
+        <div class="project-type-badge">LMS · UI/UX</div>
+      </div>
+      <div class="project-body">
+        <h3>JBH Tech Innovation — LMS Experience Design</h3>
+        <p>Ongoing UI/UX work for learning and training flows, focused on clear course navigation, learner onboarding, and a smooth experience across desktop and mobile screens.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">LMS</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">UI/UX</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">Product Design</span>
+          </div>
+          <span class="project-link">Current Role</span>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <!-- Social Media Section -->
+  <div style="margin-top: 5rem;">
+    <div class="section-tag fade-up">Social Media & Brand Management</div>
+    <h2 class="section-title fade-up">Brands I've <em>Built & Grown</em></h2>
+    <div class="social-grid">
+      <div class="social-card fade-up">
+        <img src="image/cyberbeast.jpeg" alt="Cyber Beast Media brand work" class="social-card-image">
+        <div class="social-platform">Digital Marketing Agency · Instagram</div>
+        <h3>Cyber Beast Media — Agency Brand Identity</h3>
+        <p>Owned the complete creative output for a full-service digital agency's own Instagram. Bold motion graphics, client case study reels, and a sharp visual identity built to position the brand as a credible, modern agency in Panipat.</p>
+        <div class="social-services">
+          <span class="social-service">Motion Graphics</span>
+          <span class="social-service">Reels Production</span>
+          <span class="social-service">Brand Storytelling</span>
+          <span class="social-service">Content Strategy</span>
+        </div>
+        <a href="https://www.instagram.com/cyberbeastmedia.panipat?igsh=MWlocjJybWNjeXkyMw==" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
+      </div>
+
+      <div class="social-card fade-up" style="transition-delay:0.1s">
+        <img src="image/NikkiJewelsDiamond.jpeg" alt="Nikki Jewels premium content showcase" class="social-card-image">
+        <div class="social-platform">Luxury Jewellery · Instagram</div>
+        <h3>Nikki Jewels — Premium Brand Presence</h3>
+        <p>Crafted a premium content strategy for a jewellery brand — cinematic product reels, aspirational carousel storytelling, and a luxurious visual language to attract high-intent buyers. Managed end-to-end from strategy to publishing.</p>
+        <div class="social-services">
+          <span class="social-service">Cinematic Reels</span>
+          <span class="social-service">Product Photography Edit</span>
+          <span class="social-service">Community Mgmt</span>
+          <span class="social-service">Caption Writing</span>
+        </div>
+        <a href="https://www.instagram.com/nikkijewelsofficial?igsh=MTk3eXoyZzdjcnh3OA==" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
+      </div>
+
+      <div class="social-card fade-up" style="transition-delay:0.2s">
+        <img src="image/Herbal.jpeg" alt="Herbal Ayurveda social media content" class="social-card-image">
+        <div class="social-platform">Wellness & Ayurveda · Instagram</div>
+        <h3>Herbal Ayurveda — Organic Growth from Scratch</h3>
+        <p>Built a wellness brand's Instagram presence from zero. Educational carousels on Ayurvedic remedies, AI-assisted video content, and a warm, trust-driven aesthetic. Result: consistent follower growth and a loyal, engaged community.</p>
+        <div class="social-services">
+          <span class="social-service">AI Video Content</span>
+          <span class="social-service">Educational Carousels</span>
+          <span class="social-service">Growth Strategy</span>
+          <span class="social-service">Brand Aesthetic</span>
+        </div>
+        <a href="https://www.instagram.com/herbalayurveda123?igsh=NjIyN2g2cXlneXI5" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">Get In Touch</div>
+  <h2 class="section-title fade-up">Let's create<br>something <em>remarkable</em></h2>
+  <p class="contact-subtitle">Open to freelance projects, full-time roles, and creative collaborations. If you have a vision, I have the skills to bring it to life.</p>
+  <div class="contact-links fade-up">
+    <a href="tel:+918826725102" class="contact-link">
+      <span class="contact-link-icon">📞</span>
+      <span class="contact-link-label">Phone</span>
+      <span class="contact-link-value">+91 8826725102</span>
+    </a>
+    <a href="mailto:vershatanwar621@gmail.com" class="contact-link">
+      <span class="contact-link-icon">✉️</span>
+      <span class="contact-link-label">Email</span>
+      <span class="contact-link-value">vershatanwar621@gmail.com</span>
+    </a>
+    <!-- <a href="https://www.instagram.com/cyberbeastmedia.panipat?igsh=MWlocjJybWNjeXkyMw==" target="_blank" rel="noopener" class="contact-link">
+      <span class="contact-link-icon">📸</span>
+      <span class="contact-link-label">Instagram</span>
+      <span class="contact-link-value">View Portfolio</span>
+    </a> -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Versha — All rights reserved</span>
+  <span>Creative Content &amp; AI Video Designer · Faridabad, IN</span>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 60);
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+      cursor.style.background = 'var(--rust)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '12px';
+      cursor.style.height = '12px';
+      cursor.style.background = 'var(--gold)';
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
