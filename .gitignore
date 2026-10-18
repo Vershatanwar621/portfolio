@@ -1,0 +1,8 @@
+# Temporary / source archives not needed on the deployed site
+WhatsApp Unknown 2026-10-18 at 9.01.42 PM.zip
+whatsapp_extract/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini

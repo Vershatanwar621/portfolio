@@ -368,6 +368,65 @@
   }
   .social-link:hover { color: var(--gold); border-color: var(--gold); }
 
+  /* ── BROCHURES & PRINT ── */
+  #brochures { background: var(--warm); }
+  .brochure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .brochure-card {
+    background: var(--ink); color: var(--cream); padding: 2rem 1.8rem;
+    position: relative; overflow: hidden; transition: transform 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .brochure-card:hover { transform: translateY(-4px); }
+  .brochure-card::after {
+    content: 'PDF'; position: absolute; bottom: -1.2rem; right: -0.4rem;
+    font-family: var(--serif); font-size: 6rem; font-weight: 900;
+    color: rgba(200,149,58,0.1); line-height: 1; user-select: none;
+  }
+  .brochure-format {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .brochure-format::before { content: ''; width: 8px; height: 8px; background: var(--gold); border-radius: 2px; }
+  .brochure-card h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.7rem; }
+  .brochure-card p { font-size: 0.8rem; line-height: 1.65; opacity: 0.65; font-weight: 300; margin-bottom: 1.4rem; flex-grow: 1; }
+  .brochure-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
+  .brochure-link {
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold-light); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border: 1px solid rgba(200,149,58,0.35); padding: 0.5rem 1rem;
+    align-self: flex-start; transition: all 0.2s;
+  }
+  .brochure-link:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+
+  /* ── CREATIVE SHOWCASE ── */
+  #showcase { background: var(--cream); }
+  .showcase-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem;
+  }
+  .showcase-item {
+    position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.08);
+    background: var(--card-bg); transition: transform 0.3s, box-shadow 0.3s;
+    aspect-ratio: 4 / 5;
+  }
+  .showcase-item:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(0,0,0,0.12); }
+  .showcase-item img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top center;
+    display: block; transition: transform 0.4s ease;
+  }
+  .showcase-item:hover img { transform: scale(1.04); }
+  .showcase-caption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(15,14,13,0.92) 0%, rgba(15,14,13,0) 100%);
+    padding: 2rem 1rem 1rem; color: var(--cream);
+  }
+  .showcase-brand {
+    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.2rem;
+  }
+  .showcase-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; line-height: 1.25; }
+
   /* ── CONTACT ── */
   #contact { background: var(--ink); color: var(--cream); text-align: center; }
   #contact h2.section-title { font-size: clamp(2.5rem, 5vw, 4.5rem); }
@@ -426,6 +485,8 @@
     .projects-grid { grid-template-columns: 1fr; }
     .project-card.featured { grid-column: span 1; }
     .social-grid { grid-template-columns: 1fr; }
+    .brochure-grid { grid-template-columns: 1fr; }
+    .showcase-grid { grid-template-columns: 1fr 1fr; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
@@ -442,6 +503,8 @@
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Work</a></li>
+    <li><a href="#brochures">Brochures</a></li>
+    <li><a href="#showcase">Showcase</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="mailto:vershatanwar621@gmail.com" class="nav-cta">Hire Me</a>
@@ -475,11 +538,11 @@
             <div class="stat-label">Years Exp.</div>
           </div>
           <div class="stat">
-            <div class="stat-num">8+</div>
+            <div class="stat-num">12+</div>
             <div class="stat-label">Live Projects</div>
           </div>
           <div class="stat">
-            <div class="stat-num">3</div>
+            <div class="stat-num">5</div>
             <div class="stat-label">Brands Managed</div>
           </div>
         </div>
@@ -552,12 +615,12 @@
           <div class="desc">Across design, content, and digital marketing</div>
         </div>
         <div class="about-stat">
-          <div class="num">8+</div>
+          <div class="num">12+</div>
           <div class="label">Live Projects</div>
           <div class="desc">Shipped and live across industries</div>
         </div>
         <div class="about-stat">
-          <div class="num">3</div>
+          <div class="num">5</div>
           <div class="label">Brands Managed</div>
           <div class="desc">End-to-end social presence, strategy to publish</div>
         </div>
@@ -720,7 +783,7 @@
       <div class="section-tag">Selected Work</div>
       <h2 class="section-title">Projects &amp; <em>Case Studies</em></h2>
     </div>
-    <p>Live products, shipped experiences, and real brand impact — from EdTech platforms to industrial marketplaces.</p>
+    <p>Live products, shipped experiences, and real brand impact — from EdTech platforms and industrial marketplaces to healthcare and travel brands.</p>
   </div>
 
   <div class="projects-grid">
@@ -837,6 +900,118 @@
       </div>
     </div>
 
+    <div class="project-card fade-up" style="transition-delay:0.3s">
+      <div class="project-img project-img-logo">
+        <img src="image/coreenact.png" alt="CoreEnact website preview">
+        <div class="project-type-badge">ERP · Web</div>
+        <div class="project-img-overlay">
+          <a href="https://www.coreenact.com" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>CoreEnact — Microsoft Dynamics ERP Website</h3>
+        <p>Design work for a Microsoft Dynamics 365 &amp; Copilot solutions partner — a tech-forward corporate site with a 3D visual identity, clear service positioning, and trust-driven enterprise layout.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">Web Design</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">Enterprise</span>
+          </div>
+          <a href="https://www.coreenact.com" target="_blank" rel="noopener" class="project-link">coreenact.com ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.35s">
+      <div class="project-img project-img-logo">
+        <img src="image/Jbh.jpeg" alt="JBH Tech Innovation platform preview">
+        <div class="project-type-badge">LMS · UI/UX</div>
+        <div class="project-img-overlay">
+          <a href="https://www.jbhtechinnovation.com" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>JBH Tech Innovation — LMS & Platform Design</h3>
+        <p>Ongoing UI/UX work for learning and training flows at my current role — clear course navigation, learner onboarding, and a smooth experience across desktop and mobile screens.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">LMS</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">UI/UX</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">Product Design</span>
+          </div>
+          <a href="https://www.jbhtechinnovation.com" target="_blank" rel="noopener" class="project-link">jbhtechinnovation.com ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.4s">
+      <div class="project-img project-img-logo">
+        <img src="image/Printdoot.webp" alt="Printdoot printing marketplace preview">
+        <div class="project-type-badge">Print · E-Commerce</div>
+        <div class="project-img-overlay">
+          <a href="https://printdoot.com" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>Printdoot — Online Printing Platform</h3>
+        <p>UX and visual design for a custom printing marketplace — product configurators, upload flows, and order journeys made simple for non-designers ordering print online.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">UI Design</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">E-Commerce</span>
+          </div>
+          <a href="https://printdoot.com" target="_blank" rel="noopener" class="project-link">printdoot.com ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.45s">
+      <div class="project-img project-img-logo">
+        <img src="image/watlair.png" alt="Watlair footwear store preview">
+        <div class="project-type-badge">Footwear · E-Commerce</div>
+        <div class="project-img-overlay">
+          <a href="https://www.watlair.com" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>Watlair — Footwear Brand Storefront</h3>
+        <p>Design for a minimalist D2C footwear brand launching its "Drift" shoe — bold product storytelling, a Shopify storefront layout, and a clean visual language built around a single hero product.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">E-Commerce</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">Branding</span>
+          </div>
+          <a href="https://www.watlair.com" target="_blank" rel="noopener" class="project-link">watlair.com ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.5s">
+      <div class="project-img project-img-logo">
+        <img src="image/venusmeddoor.png" alt="Venus Meddoor medical doors preview">
+        <div class="project-type-badge">Healthcare · Web</div>
+        <div class="project-img-overlay">
+          <a href="https://venusmeddoor.com" target="_blank" rel="noopener">View Live →</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>Venus Meddoor — Medical Door Manufacturer</h3>
+        <p>Website design for a healthcare infrastructure manufacturer of hermetic OT doors, radiation-shielding doors, and surgical equipment — precise product showcases and a trust-driven, technical B2B layout.</p>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="project-tag">Web Design</span>
+            <span class="project-tag">·</span>
+            <span class="project-tag">Healthcare B2B</span>
+          </div>
+          <a href="https://venusmeddoor.com" target="_blank" rel="noopener" class="project-link">venusmeddoor.com ↗</a>
+        </div>
+      </div>
+    </div>
+
     <!-- <div class="project-card fade-up" style="transition-delay:0.3s">
       <div class="project-img project-img-logo">
         <img src="image/Jbh.jpeg" alt="JBH Tech Innovation LMS preview">
@@ -904,6 +1079,141 @@
           <span class="social-service">Brand Aesthetic</span>
         </div>
         <a href="https://www.instagram.com/herbalayurveda123?igsh=NjIyN2g2cXlneXI5" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
+      </div>
+
+      <div class="social-card fade-up" style="transition-delay:0.3s">
+        <img src="image/mystery_travelhacks.jpeg" alt="Mystery Holidays travel hacks post" class="social-card-image">
+        <div class="social-platform">Travel & Tourism · Instagram</div>
+        <h3>Mystery Holidays — Travel Brand Content</h3>
+        <p>Crafted destination-driven content for a travel brand — cinematic holiday reels, itinerary carousel posts, and an adventurous visual tone designed to turn followers into travellers.</p>
+        <div class="social-services">
+          <span class="social-service">Carousel Posts</span>
+          <span class="social-service">Destination Reels</span>
+          <span class="social-service">Brand Storytelling</span>
+          <span class="social-service">Engagement Strategy</span>
+        </div>
+        <a href="https://www.instagram.com/mysteryholidays/" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
+      </div>
+
+      <div class="social-card fade-up" style="transition-delay:0.4s">
+        <div class="social-platform">Travel & Tourism · Instagram</div>
+        <h3>Viva Holidays — Carousel & Social Design</h3>
+        <p>Designed scroll-stopping carousel posts and brand visuals for a holiday company — travel packages, offers, and destination guides presented in a vibrant, swipe-worthy format that drives inquiries.</p>
+        <div class="social-services">
+          <span class="social-service">Carousel Post Creation</span>
+          <span class="social-service">Offer & Package Design</span>
+          <span class="social-service">Visual Identity</span>
+          <span class="social-service">Content Calendar</span>
+        </div>
+        <a href="https://www.instagram.com/viva_holidays/" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BROCHURES & PRINT -->
+<section id="brochures">
+  <div class="projects-intro fade-up">
+    <div>
+      <div class="section-tag">Print & Layout Design</div>
+      <h2 class="section-title">Brochures &amp; <em>Collateral</em></h2>
+    </div>
+    <p>Corporate brochures, marketing flyers, and social media post collections — designed end-to-end from layout to final print-ready files.</p>
+  </div>
+  <div class="brochure-grid">
+    <div class="brochure-card fade-up">
+      <div class="brochure-format">Brochure · Print-Ready</div>
+      <h3>Moksh CAD — Corporate Brochure</h3>
+      <p>Full corporate brochure for Moksh CAD's smartsourcing services — estimation, CNC programming, CAD 2D/3D and more. Structured information hierarchy with a clean, professional layout.</p>
+      <div class="brochure-tags">
+        <span class="social-service">Layout Design</span>
+        <span class="social-service">Corporate Branding</span>
+      </div>
+      <a href="Moksh%20CAD%20-%20Brochure.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
+    </div>
+
+    <div class="brochure-card fade-up" style="transition-delay:0.08s">
+      <div class="brochure-format">Brochure · Vendor Partner</div>
+      <h3>Moksh CAD × FMA — Partner Brochure</h3>
+      <p>FMA vendor-partner brochure targeting U.S. metal fabricators — offshore CAD/CNC services, value propositions, and benefits presented as a compelling B2B sales collateral.</p>
+      <div class="brochure-tags">
+        <span class="social-service">B2B Collateral</span>
+        <span class="social-service">Infographic Layout</span>
+      </div>
+      <a href="FMA%20-%20brochure.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
+    </div>
+
+    <div class="brochure-card fade-up" style="transition-delay:0.16s">
+      <div class="brochure-format">Brochure · Recruitment</div>
+      <h3>Moksh Recruiting — MSP Staffing Brochure</h3>
+      <p>Recruiting & IT staffing solutions brochure for MSPs — service breakdowns, trust metrics, and contact design across a cohesive, modern corporate template.</p>
+      <div class="brochure-tags">
+        <span class="social-service">Service Design</span>
+        <span class="social-service">Typography</span>
+      </div>
+      <a href="recruiting%20final-%20brochure-approved.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
+    </div>
+
+    <div class="brochure-card fade-up" style="transition-delay:0.24s">
+      <div class="brochure-format">Flyer · Restaurant</div>
+      <h3>Simmi's Cafe — Menu Flyer</h3>
+      <p>Appetite-driven menu flyer for an Indian cafe near Humber College, Etobicoke — menu categorization, promo callouts, and warm visual storytelling in a single-fold layout.</p>
+      <div class="brochure-tags">
+        <span class="social-service">Flyer Design</span>
+        <span class="social-service">Food Branding</span>
+      </div>
+      <a href="Brochure%20-%20Final%20-%20Front.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
+    </div>
+
+    <div class="brochure-card fade-up" style="transition-delay:0.32s">
+      <div class="brochure-format">Collection · Social Posts</div>
+      <h3>Social Media Posts — Design Collection</h3>
+      <p>A curated compilation of social media post designs created for brand clients — feed-ready templates covering promotions, awareness, and engagement content.</p>
+      <div class="brochure-tags">
+        <span class="social-service">Post Design</span>
+        <span class="social-service">Social Templates</span>
+      </div>
+      <a href="Social%20media%20posts.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- CREATIVE SHOWCASE -->
+<section id="showcase">
+  <div class="projects-intro fade-up">
+    <div>
+      <div class="section-tag">Real Work, Real Posts</div>
+      <h2 class="section-title">Social Media <em>Showcase</em></h2>
+    </div>
+    <p>A selection of published feed creatives designed for Mystery Holidays — campaign posts, educational carousels, and seasonal offers shipped to the brand's Instagram.</p>
+  </div>
+  <div class="showcase-grid">
+    <div class="showcase-item fade-up">
+      <img src="image/mystery_travelhacks.jpeg" alt="Mystery Holidays — Travel Hacks carousel post">
+      <div class="showcase-caption">
+        <div class="showcase-brand">Mystery Holidays</div>
+        <div class="showcase-title">Travel Hacks — Carousel Post</div>
+      </div>
+    </div>
+    <div class="showcase-item fade-up" style="transition-delay:0.08s">
+      <img src="image/mystery_mythvsfact.jpeg" alt="Mystery Holidays — Myth vs Fact post">
+      <div class="showcase-caption">
+        <div class="showcase-brand">Mystery Holidays</div>
+        <div class="showcase-title">Myth vs. Fact — Mystery Edition</div>
+      </div>
+    </div>
+    <div class="showcase-item fade-up" style="transition-delay:0.16s">
+      <img src="image/mystery_destinations.jpeg" alt="Mystery Holidays — Last Week's Mystery Destinations post">
+      <div class="showcase-caption">
+        <div class="showcase-brand">Mystery Holidays</div>
+        <div class="showcase-title">Last Week's Mystery Destinations</div>
+      </div>
+    </div>
+    <div class="showcase-item fade-up" style="transition-delay:0.24s">
+      <img src="image/mystery_fathersday.jpeg" alt="Mystery Holidays — Father's Day offer post">
+      <div class="showcase-caption">
+        <div class="showcase-brand">Mystery Holidays</div>
+        <div class="showcase-title">Father's Day — Offer Creative</div>
       </div>
     </div>
   </div>
