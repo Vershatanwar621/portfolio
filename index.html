@@ -1,1292 +1,2599 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Versha — Creative Content & AI Video Designer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>VERSHA TANWAR — Graphic Designer, UI/UX &amp; AI Creative Portfolio</title>
+  <meta name="description" content="Art-directed graphic design and UI/UX portfolio of Versha Tanwar. Packaging, social media campaigns, print collateral, B2B brochures, and digital interfaces.">
 
-  :root {
-    --ink: #0f0e0d;
-    --cream: #f5f0e8;
-    --warm: #ede5d8;
-    --gold: #c8953a;
-    --gold-light: #f0d89a;
-    --rust: #b84b2a;
-    --forest: #2a4a3a;
-    --muted: #6b6358;
-    --card-bg: #faf7f2;
-    --serif: 'Playfair Display', Georgia, serif;
-    --sans: 'DM Sans', sans-serif;
-    --mono: 'Space Mono', monospace;
-  }
+  <!-- Bold Contemporary Display & Grotesk Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
 
-  html { scroll-behavior: smooth; }
+  <style>
+    /* ══════════════════════════════════════════════════════════════════
+       SWISS GRAPHIC DESIGN SYSTEM — CONTEMPORARY CREATIVE STUDIO
+       ══════════════════════════════════════════════════════════════════ */
+    :root {
+      --paper: #F5F1E8;
+      --paper-warm: #EFE8DA;
+      --paper-card: #FAF7F0;
+      --ink: #171717;
+      --ink-muted: #5A564F;
+      --cobalt: #304FFE;
+      --cobalt-dark: #1A237E;
+      --lime: #D7FF38;
+      --orange: #FF5B35;
+      --lavender: #B9A2FF;
+      --white: #FFFFFF;
+      --border-dark: #171717;
+      --border-subtle: rgba(23, 23, 23, 0.15);
 
-  body {
-    font-family: var(--sans);
-    background: var(--cream);
-    color: var(--ink);
-    overflow-x: hidden;
-    cursor: none;
-  }
+      --font-display: 'Syne', sans-serif;
+      --font-heavy: 'Archivo Black', sans-serif;
+      --font-grotesk: 'Space Grotesk', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
 
-  /* ── CUSTOM CURSOR ── */
-  .cursor {
-    position: fixed; width: 12px; height: 12px;
-    background: var(--gold); border-radius: 50%;
-    pointer-events: none; z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
-  }
-  .cursor-ring {
-    position: fixed; width: 36px; height: 36px;
-    border: 1.5px solid var(--gold); border-radius: 50%;
-    pointer-events: none; z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: all 0.15s ease;
-    opacity: 0.6;
-  }
-  body:hover .cursor { opacity: 1; }
+      --border-thick: 2px solid var(--ink);
+      --border-heavy: 3px solid var(--ink);
+      --shadow-brutal: 5px 5px 0px var(--ink);
+      --shadow-brutal-sm: 3px 3px 0px var(--ink);
+      --shadow-brutal-hover: 8px 8px 0px var(--ink);
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.4rem 4rem;
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(200, 149, 58, 0.15);
-  }
-  .nav-logo {
-    font-family: var(--serif); font-size: 1.3rem; font-weight: 700;
-    letter-spacing: -0.02em; color: var(--ink); text-decoration: none;
-  }
-  .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted); text-decoration: none; font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-    border: 1.5px solid var(--gold); color: var(--gold);
-    padding: 0.55rem 1.4rem; text-decoration: none; font-weight: 500;
-    transition: all 0.25s;
-  }
-  .nav-cta:hover { background: var(--gold); color: var(--cream); }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh; display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 4rem;
-    padding-top: 6rem;
-    position: relative; overflow: hidden;
-  }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding-right: 3rem; padding-bottom: 4rem;
-  }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem;
-  }
-  .hero-tag::before {
-    content: ''; display: block; width: 28px; height: 1.5px; background: var(--gold);
-  }
-  h1.hero-name {
-    font-family: var(--serif); font-size: clamp(3.5rem, 6vw, 6rem);
-    font-weight: 900; line-height: 0.95; letter-spacing: -0.03em;
-    color: var(--ink); margin-bottom: 0.4rem;
-  }
-  h1.hero-name em { font-style: italic; color: var(--gold); }
-  .hero-title {
-    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--muted); margin-bottom: 2rem;
-    border-left: 3px solid var(--rust); padding-left: 1rem;
-  }
-  .hero-desc {
-    font-size: 1rem; line-height: 1.75; color: var(--muted);
-    max-width: 420px; margin-bottom: 2.5rem; font-weight: 300;
-  }
-  .hero-actions { display: flex; gap: 1rem; align-items: center; }
-  .btn-primary {
-    background: var(--ink); color: var(--cream);
-    padding: 0.85rem 2rem; font-size: 0.82rem; letter-spacing: 0.08em;
-    text-transform: uppercase; font-weight: 500; text-decoration: none;
-    transition: all 0.25s; border: 2px solid var(--ink);
-  }
-  .btn-primary:hover { background: var(--gold); border-color: var(--gold); }
-  .btn-ghost {
-    color: var(--ink); padding: 0.85rem 2rem; font-size: 0.82rem;
-    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
-    text-decoration: none; border: 2px solid rgba(15,14,13,0.25);
-    transition: all 0.25s;
-  }
-  .btn-ghost:hover { border-color: var(--ink); }
-  .hero-right {
-    display: flex; align-items: center; justify-content: center;
-    position: relative; padding-bottom: 4rem;
-  }
-  .hero-visual {
-    position: relative; width: 100%; max-width: 420px;
-  }
-  .hero-card-main {
-    background: var(--ink); color: var(--cream);
-    padding: 3rem 2.5rem; position: relative; z-index: 2;
-    animation: float 5s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-  .hero-card-main h2 {
-    font-family: var(--serif); font-size: 1.6rem; font-weight: 700;
-    line-height: 1.2; margin-bottom: 1.2rem;
-  }
-  .hero-card-main h2 em { color: var(--gold-light); font-style: italic; }
-  .stat-row { display: flex; gap: 2rem; margin-top: 1.8rem; }
-  .stat { }
-  .stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--gold-light); }
-  .stat-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; }
-  .hero-card-accent {
-    position: absolute; bottom: -2rem; right: -2rem;
-    background: linear-gradient(135deg, #cf9b2f 0%, #f4d57f 100%);
-    color: var(--ink);
-    padding: 1.3rem 1.6rem; z-index: 3;
-    border: 1px solid rgba(15, 14, 13, 0.14);
-    border-radius: 0.6rem;
-    box-shadow: 0 24px 45px rgba(15, 14, 13, 0.12);
-    font-family: var(--mono); font-size: 0.75rem;
-    letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
-    animation: float 5s ease-in-out infinite 1s;
-  }
-  .hero-scroll {
-    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--muted); animation: bounce 2s ease-in-out infinite;
-  }
-  @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
-  .hero-scroll svg { opacity: 0.5; }
-  .hero-bg-text {
-    position: absolute; bottom: 3rem; left: 4rem;
-    font-family: var(--serif); font-size: clamp(6rem, 12vw, 14rem);
-    font-weight: 900; color: transparent;
-    -webkit-text-stroke: 1px rgba(200,149,58,0.12);
-    pointer-events: none; line-height: 1; user-select: none;
-    z-index: 0;
-  }
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--paper);
+      color: var(--ink);
+      scroll-padding-top: 72px;
+    }
 
-  /* ── SECTION BASE ── */
-  section { padding: 6rem 4rem; position: relative; }
-  .section-tag {
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-  .section-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
-  h2.section-title {
-    font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.2rem);
-    font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-  }
-  h2.section-title em { font-style: italic; color: var(--gold); }
+    body {
+      font-family: var(--font-grotesk);
+      background-color: var(--paper);
+      color: var(--ink);
+      overflow-x: hidden;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* ── ABOUT ── */
-  #about { background: var(--ink); color: var(--cream); }
-  #about h2.section-title em { color: var(--gold-light); }
-  #about .section-tag { color: var(--gold-light); }
-  #about .section-tag::before { background: var(--gold-light); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-  .about-text p { font-size: 1rem; line-height: 1.85; font-weight: 300; opacity: 0.82; margin-bottom: 1.2rem; }
-  .about-text p strong { font-weight: 500; color: var(--gold-light); }
-  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-  .tool-chip {
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-    padding: 0.7rem 1rem; font-family: var(--mono); font-size: 0.7rem;
-    letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8;
-    transition: all 0.2s;
-  }
-  .tool-chip:hover { background: rgba(200,149,58,0.15); border-color: rgba(200,149,58,0.4); opacity: 1; }
-  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .about-stat { border-left: 2px solid var(--gold-light); padding-left: 1.5rem; }
-  .about-stat .num { font-family: var(--serif); font-size: 3rem; font-weight: 700; color: var(--gold-light); line-height: 1; }
-  .about-stat .label { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.55; margin-top: 0.3rem; }
-  .about-stat .desc { font-size: 0.85rem; opacity: 0.65; margin-top: 0.5rem; line-height: 1.5; }
-  .experience-list { margin-top: 2.5rem; }
-  .exp-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0; }
-  .exp-item:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
-  .exp-header { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
-  .exp-role { font-size: 0.9rem; font-weight: 500; }
-  .exp-company { font-size: 0.8rem; opacity: 0.55; margin-top: 0.2rem; }
-  .exp-period { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; color: var(--gold-light); white-space: nowrap; opacity: 0.8; }
+    ::selection {
+      background: var(--lime);
+      color: var(--ink);
+    }
 
-  /* ── SKILLS ── */
-  #skills { background: var(--warm); }
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .skill-card {
-    background: var(--card-bg); border: 1px solid rgba(0,0,0,0.07);
-    padding: 1.8rem; position: relative; overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .skill-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-  .skill-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold);
-    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
-  }
-  .skill-card:hover::before { transform: scaleX(1); }
-  .skill-icon { font-size: 1.8rem; margin-bottom: 1rem; }
-  .skill-card h3 { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .skill-tag {
-    background: var(--warm); border: 1px solid rgba(0,0,0,0.1);
-    font-size: 0.68rem; padding: 0.3rem 0.6rem; letter-spacing: 0.04em;
-    color: var(--muted); font-family: var(--mono);
-  }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
 
-  /* ── PROJECTS ── */
-  #projects { background: var(--cream); }
-  .projects-intro {
-    display: flex; justify-content: space-between; align-items: end;
-    margin-bottom: 3.5rem;
-  }
-  .projects-intro p { font-size: 1rem; line-height: 1.7; color: var(--muted); max-width: 380px; font-weight: 300; }
-  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .project-card {
-    background: var(--card-bg); border: 1px solid rgba(0,0,0,0.07);
-    overflow: hidden; transition: transform 0.3s;
-  }
-  .project-card:hover { transform: translateY(-6px); }
-  .project-card:hover .project-img-overlay { opacity: 1; }
-  .project-img {
-    height: 180px; position: relative; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #f8f2e8 0%, #ede1cf 100%);
-  }
-  .project-img img {
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
-  }
-  .project-img.project-img-logo {
-    padding: 1rem;
-    background:
-      radial-gradient(circle at top, rgba(240, 216, 154, 0.35), transparent 55%),
-      linear-gradient(135deg, #fbf7f0 0%, #efe2d1 100%);
-  }
-  .project-img.project-img-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
-    filter: drop-shadow(0 10px 20px rgba(15, 14, 13, 0.08));
-  }
-  .project-img-letter {
-    font-family: var(--serif); font-size: 5rem; font-weight: 900;
-    color: rgba(255,255,255,0.08); line-height: 1; user-select: none;
-  }
-  .project-img-overlay {
-    position: absolute; inset: 0;
-    background: rgba(200,149,58,0.85);
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .project-img-overlay a {
-    color: var(--ink); font-size: 0.75rem; font-weight: 700;
-    letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
-    border: 2px solid var(--ink); padding: 0.6rem 1.4rem; font-family: var(--mono);
-  }
-  .project-type-badge {
-    position: absolute; top: 1rem; left: 1rem;
-    background: var(--gold); color: var(--ink);
-    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em;
-    text-transform: uppercase; padding: 0.3rem 0.7rem; font-weight: 700;
-  }
-  .project-body { padding: 1.5rem; }
-  .project-body h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.3; }
-  .project-body p { font-size: 0.82rem; line-height: 1.65; color: var(--muted); font-weight: 300; }
-  .project-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.07); }
-  .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-  .project-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); }
-  .project-link {
-    font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--muted); text-decoration: none;
-    border-bottom: 1px solid transparent; transition: all 0.2s;
-  }
-  .project-link:hover { color: var(--gold); border-color: var(--gold); }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  /* Featured project */
-  .project-card.featured {
-    grid-column: span 1;
-  }
-  .project-card.featured .project-img { height: 180px; }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
 
-  /* Social media projects */
-  .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .social-card {
-    background: var(--ink); color: var(--cream); padding: 2rem 1.8rem;
-    position: relative; overflow: hidden; transition: transform 0.3s;
-  }
-  .social-card-image {
-    width: calc(100% + 3.6rem);
-    height: 150px;
-    object-fit: contain;
-    object-position: center center;
-    display: block;
-    margin: -2rem -1.8rem 1.5rem;
-    padding: 0.75rem 1rem;
-    background:
-      radial-gradient(circle at top, rgba(240, 216, 154, 0.18), transparent 60%),
-      linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 100%);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .social-card:hover { transform: translateY(-4px); }
-  .social-card::after {
-    content: ''; position: absolute; bottom: -2rem; right: -2rem;
-    width: 8rem; height: 8rem; border-radius: 50%;
-    border: 1.5px solid rgba(200,149,58,0.2);
-  }
-  .social-platform { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
-  .social-card h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.8rem; }
-  .social-card p { font-size: 0.82rem; line-height: 1.7; opacity: 0.65; font-weight: 300; margin-bottom: 1.5rem; }
-  .social-services { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
-  .social-service {
-    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
-    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em;
-    text-transform: uppercase; padding: 0.28rem 0.6rem; color: rgba(255,255,255,0.6);
-  }
-  .social-link {
-    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--gold-light); text-decoration: none;
-    display: inline-flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(200,149,58,0.3);
-    padding-bottom: 2px; transition: all 0.2s;
-  }
-  .social-link:hover { color: var(--gold); border-color: var(--gold); }
+    .wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-  /* ── BROCHURES & PRINT ── */
-  #brochures { background: var(--warm); }
-  .brochure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .brochure-card {
-    background: var(--ink); color: var(--cream); padding: 2rem 1.8rem;
-    position: relative; overflow: hidden; transition: transform 0.3s;
-    display: flex; flex-direction: column;
-  }
-  .brochure-card:hover { transform: translateY(-4px); }
-  .brochure-card::after {
-    content: 'PDF'; position: absolute; bottom: -1.2rem; right: -0.4rem;
-    font-family: var(--serif); font-size: 6rem; font-weight: 900;
-    color: rgba(200,149,58,0.1); line-height: 1; user-select: none;
-  }
-  .brochure-format {
-    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-  }
-  .brochure-format::before { content: ''; width: 8px; height: 8px; background: var(--gold); border-radius: 2px; }
-  .brochure-card h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.7rem; }
-  .brochure-card p { font-size: 0.8rem; line-height: 1.65; opacity: 0.65; font-weight: 300; margin-bottom: 1.4rem; flex-grow: 1; }
-  .brochure-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
-  .brochure-link {
-    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--gold-light); text-decoration: none;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    border: 1px solid rgba(200,149,58,0.35); padding: 0.5rem 1rem;
-    align-self: flex-start; transition: all 0.2s;
-  }
-  .brochure-link:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+    /* ── SWISS STAMPS & BADGES ── */
+    .swiss-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border: var(--border-thick);
+      background: var(--lime);
+      color: var(--ink);
+      box-shadow: 2px 2px 0px var(--ink);
+      width: fit-content;
+    }
+    .swiss-stamp.cobalt { background: var(--cobalt); color: var(--white); }
+    .swiss-stamp.orange { background: var(--orange); color: var(--white); }
+    .swiss-stamp.lavender { background: var(--lavender); color: var(--ink); }
+    .swiss-stamp.white { background: var(--white); color: var(--ink); }
 
-  /* ── CREATIVE SHOWCASE ── */
-  #showcase { background: var(--cream); }
-  .showcase-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem;
-  }
-  .showcase-item {
-    position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.08);
-    background: var(--card-bg); transition: transform 0.3s, box-shadow 0.3s;
-    aspect-ratio: 4 / 5;
-  }
-  .showcase-item:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(0,0,0,0.12); }
-  .showcase-item img {
-    width: 100%; height: 100%; object-fit: cover; object-position: top center;
-    display: block; transition: transform 0.4s ease;
-  }
-  .showcase-item:hover img { transform: scale(1.04); }
-  .showcase-caption {
-    position: absolute; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to top, rgba(15,14,13,0.92) 0%, rgba(15,14,13,0) 100%);
-    padding: 2rem 1rem 1rem; color: var(--cream);
-  }
-  .showcase-brand {
-    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.2rem;
-  }
-  .showcase-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; line-height: 1.25; }
+    /* ── TOP EDITORIAL NAVIGATION ── */
+    header.swiss-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--paper);
+      border-bottom: var(--border-heavy);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-heavy);
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .brand-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--orange);
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      animation: pulseDot 2.2s infinite ease-in-out;
+    }
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); background: var(--orange); }
+      50% { transform: scale(1.25); background: var(--lime); }
+    }
 
-  /* ── CONTACT ── */
-  #contact { background: var(--ink); color: var(--cream); text-align: center; }
-  #contact h2.section-title { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-  #contact h2.section-title em { color: var(--gold-light); }
-  #contact .section-tag { color: var(--gold-light); justify-content: center; }
-  #contact .section-tag::before { background: var(--gold-light); }
-  .contact-subtitle { font-size: 1rem; opacity: 0.6; font-weight: 300; margin: 1rem 0 3rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
-  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-  .contact-link {
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    border: 1px solid rgba(255,255,255,0.12); padding: 1.5rem 2.5rem;
-    text-decoration: none; color: var(--cream); transition: all 0.25s; min-width: 160px;
-  }
-  .contact-link:hover { background: rgba(200,149,58,0.12); border-color: rgba(200,149,58,0.5); }
-  .contact-link-icon { font-size: 1.5rem; }
-  .contact-link-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; }
-  .contact-link-value { font-size: 0.85rem; font-weight: 400; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border: 1.5px solid transparent;
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      border: 1.5px solid var(--ink);
+      background: var(--lime);
+      box-shadow: 2px 2px 0px var(--ink);
+    }
+    .nav-cta {
+      background: var(--cobalt) !important;
+      color: var(--white) !important;
+      border: var(--border-thick) !important;
+      box-shadow: 3px 3px 0px var(--ink);
+      padding: 8px 16px !important;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover {
+      background: var(--orange) !important;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px var(--ink) !important;
+    }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center;
-    color: rgba(255,255,255,0.3); font-size: 0.75rem; font-family: var(--mono);
-    letter-spacing: 0.08em; text-transform: uppercase;
-  }
+    .nav-mobile-btn {
+      display: none;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border: var(--border-thick);
+      background: var(--lime);
+      box-shadow: 2px 2px 0px var(--ink);
+    }
 
-  /* ── DIVIDER ── */
-  .marquee-strip {
-    background: var(--gold); padding: 0.8rem 0; overflow: hidden;
-    white-space: nowrap;
-  }
-  .marquee-inner { display: inline-block; animation: marquee 18s linear infinite; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .marquee-text {
-    display: inline-block; margin: 0 2rem;
-    font-family: var(--mono); font-size: 0.7rem; font-weight: 700;
-    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink);
-  }
+    /* Mobile drawer */
+    .mobile-drawer {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px 24px;
+      background: var(--paper-warm);
+      border-bottom: var(--border-heavy);
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+    .mobile-drawer a {
+      font-family: var(--font-heavy);
+      font-size: 1.2rem;
+      padding: 10px 14px;
+      border: var(--border-thick);
+      background: var(--white);
+      box-shadow: 2px 2px 0px var(--ink);
+    }
 
-  /* ── FADE IN ANIMATIONS ── */
-  .fade-up {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+    /* ── HERO SECTION: SWISS POSTER COMPOSITION ── */
+    .hero-section {
+      border-bottom: var(--border-heavy);
+      padding: 64px 0 54px;
+      background: var(--paper);
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .hero-eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(48px, 6.8vw, 92px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin: 8px 0;
+    }
+    .hero-title .accent-word {
+      display: inline-block;
+      background: var(--lime);
+      padding: 0 10px;
+      border: var(--border-thick);
+      box-shadow: 4px 4px 0px var(--ink);
+      transform: rotate(-1deg);
+    }
+    .hero-title .cobalt-word {
+      color: var(--cobalt);
+    }
+    .hero-lead {
+      font-size: clamp(17px, 1.4vw, 21px);
+      line-height: 1.55;
+      color: var(--ink-muted);
+      max-width: 680px;
+    }
+    .hero-lead strong {
+      color: var(--ink);
+    }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
-    .nav-links { display: none; }
-    section { padding: 4rem 1.5rem; }
-    #hero { grid-template-columns: 1fr; padding: 0 1.5rem; padding-top: 6rem; }
-    .hero-right { display: none; }
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .skills-grid { grid-template-columns: 1fr 1fr; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card.featured { grid-column: span 1; }
-    .social-grid { grid-template-columns: 1fr; }
-    .brochure-grid { grid-template-columns: 1fr; }
-    .showcase-grid { grid-template-columns: 1fr 1fr; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-  }
-</style>
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+      padding-top: 24px;
+      border-top: var(--border-thick);
+    }
+    .hero-stat-card {
+      background: var(--white);
+      border: var(--border-thick);
+      padding: 16px;
+      box-shadow: var(--shadow-brutal-sm);
+    }
+    .hero-stat-card strong {
+      display: block;
+      font-family: var(--font-heavy);
+      font-size: clamp(26px, 2.5vw, 36px);
+      line-height: 1;
+      color: var(--ink);
+    }
+    .hero-stat-card span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-top: 6px;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    /* Hero Right: Brutalist Graphic Card */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .hero-poster-box {
+      background: var(--cobalt);
+      color: var(--white);
+      border: var(--border-heavy);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-brutal);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-poster-box::before {
+      content: "CH-2026";
+      position: absolute;
+      top: -15px;
+      right: 10px;
+      font-family: var(--font-heavy);
+      font-size: 5rem;
+      color: rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+    .hero-poster-box h3 {
+      font-family: var(--font-heavy);
+      font-size: 1.6rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--lime);
+    }
+    .hero-poster-box p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #DDE2FF;
+      margin-bottom: 20px;
+    }
+    .hero-disciplines {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .discipline-chip {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 700;
+      border: 1.5px solid var(--ink);
+    }
+
+    .hero-actions-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-brutal {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heavy);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 12px 22px;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-brutal-sm);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .btn-brutal.primary {
+      background: var(--lime);
+      color: var(--ink);
+    }
+    .btn-brutal.secondary {
+      background: var(--white);
+      color: var(--ink);
+    }
+    .btn-brutal.orange {
+      background: var(--orange);
+      color: var(--white);
+    }
+    .btn-brutal:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: var(--shadow-brutal);
+    }
+
+    /* ── SECTION HEADER ARCHITECTURE ── */
+    section {
+      padding: 80px 0;
+      border-bottom: var(--border-heavy);
+    }
+    .sec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+      padding-bottom: 20px;
+      border-bottom: var(--border-thick);
+    }
+    .sec-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sec-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(34px, 4.5vw, 60px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+    .sec-desc {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      max-width: 480px;
+    }
+
+    /* ── FILTER CHIPS ── */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: var(--border-thick);
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: 2px 2px 0px var(--ink);
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--cobalt);
+      color: var(--white);
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0px var(--ink);
+    }
+
+    /* ── WORK GALLERY: 9 CASE STUDIES ── */
+    .cases-container {
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+    }
+    .case-block {
+      background: var(--paper-card);
+      border: var(--border-heavy);
+      padding: 36px;
+      box-shadow: var(--shadow-brutal);
+      transition: var(--transition);
+    }
+    .case-block:hover {
+      box-shadow: var(--shadow-brutal-hover);
+    }
+
+    .case-meta {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 36px;
+      margin-bottom: 28px;
+      align-items: start;
+    }
+    .case-meta-left {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .case-index {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .case-title {
+      font-family: var(--font-heavy);
+      font-size: clamp(26px, 2.8vw, 38px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .case-swatches {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .swatch-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--ink);
+      box-shadow: 1px 1px 0px var(--ink);
+    }
+    .case-link-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--cobalt);
+      border: 1.5px solid var(--cobalt);
+      padding: 4px 12px;
+      width: fit-content;
+      transition: var(--transition);
+    }
+    .case-link-badge:hover {
+      background: var(--cobalt);
+      color: var(--white);
+    }
+
+    .case-meta-right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .case-desc {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--ink-muted);
+    }
+    .case-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .case-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      background: var(--paper-warm);
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* Image Grids */
+    .grid-4-frames {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .grid-3-frames {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .grid-1-frame {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .zoom-frame {
+      display: block;
+      width: 100%;
+      border: var(--border-thick);
+      background: var(--white);
+      padding: 0;
+      cursor: zoom-in;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 3px 3px 0px var(--ink);
+      transition: var(--transition);
+    }
+    .zoom-frame:hover {
+      transform: translateY(-4px);
+      box-shadow: 6px 6px 0px var(--ink);
+    }
+    .zoom-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .zoom-frame:hover img {
+      transform: scale(1.03);
+    }
+    .zoom-frame-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: var(--ink);
+      color: var(--lime);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 7px;
+      border: 1px solid var(--lime);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    /* ── SECTION: UI/UX & DIGITAL PRODUCTS (#web) ── */
+    .web-section {
+      background: var(--paper-warm);
+    }
+    .sites-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .site-card {
+      background: var(--white);
+      border: var(--border-heavy);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-brutal-sm);
+      transition: var(--transition);
+    }
+    .site-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: var(--shadow-brutal);
+      border-color: var(--cobalt);
+    }
+    .site-logo-frame {
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FDFDFD;
+      border: var(--border-thick);
+      padding: 16px;
+      margin-bottom: 6px;
+    }
+    .site-logo-frame.dark {
+      background: #111E15;
+    }
+    .site-logo-frame img {
+      max-height: 100%;
+      max-width: 80%;
+      object-fit: contain;
+    }
+    .site-logo-letter {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--cobalt);
+      line-height: 1;
+    }
+    .site-card-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--orange);
+    }
+    .site-card-title {
+      font-family: var(--font-heavy);
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .site-card-url {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ── SECTION: CRAFT & HOW I THINK (#craft) ── */
+    .craft-section {
+      background: var(--paper);
+    }
+    .craft-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .craft-card {
+      background: var(--white);
+      border: var(--border-heavy);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-brutal);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .craft-card h3 {
+      font-family: var(--font-heavy);
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .craft-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--ink-muted);
+    }
+    .craft-demo-box {
+      border: var(--border-thick);
+      padding: 20px;
+      background: var(--paper-warm);
+    }
+    /* Demo 1: Hierarchy */
+    .h1-demo {
+      font-family: var(--font-heavy);
+      font-size: 1.8rem;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .h2-demo {
+      font-family: var(--font-grotesk);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cobalt);
+      margin: 6px 0 10px;
+    }
+    .h3-demo {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+    }
+    .cta-demo-pill {
+      display: inline-block;
+      margin-top: 14px;
+      background: var(--lime);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 5px 14px;
+      border: 1.5px solid var(--ink);
+      box-shadow: 2px 2px 0px var(--ink);
+    }
+    /* Demo 2: Colour */
+    .palette-ratio-bar {
+      display: grid;
+      grid-template-columns: 3fr 2fr 1fr;
+      height: 60px;
+      border: var(--border-thick);
+      overflow: hidden;
+    }
+    .ratio-part:nth-child(1) { background: var(--ink); }
+    .ratio-part:nth-child(2) { background: var(--cobalt); }
+    .ratio-part:nth-child(3) { background: var(--lime); }
+    .ratio-caption {
+      display: block;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      text-align: center;
+    }
+    /* Demo 3: Typography */
+    .tp-huge {
+      font-family: var(--font-display);
+      font-size: 3.6rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--cobalt);
+    }
+    .tp-sub {
+      font-family: var(--font-heavy);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      margin: 4px 0;
+    }
+    .tp-body {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── SECTION: CLIENTS & SOCIAL FEEDS (#clients) ── */
+    .clients-section {
+      background: var(--paper-warm);
+    }
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .client-feed-card {
+      background: var(--white);
+      border: var(--border-heavy);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: var(--shadow-brutal-sm);
+      transition: var(--transition);
+    }
+    .client-feed-card:hover {
+      background: var(--lime);
+      transform: translate(-3px, -3px);
+      box-shadow: var(--shadow-brutal);
+    }
+    .client-handle {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--cobalt);
+    }
+    .client-name {
+      font-family: var(--font-heavy);
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+    .client-category {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── SECTION: EXPERIENCE & CHRONOLOGY (#experience) ── */
+    .experience-section {
+      background: var(--paper);
+    }
+    .xp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    .xp-item {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 32px;
+      background: var(--white);
+      border: var(--border-heavy);
+      padding: 28px;
+      box-shadow: var(--shadow-brutal-sm);
+    }
+    .xp-period {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--orange);
+    }
+    .xp-role h3 {
+      font-family: var(--font-heavy);
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+    .xp-location {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .xp-role ul {
+      padding-left: 20px;
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* Skills Quad */
+    .skills-quad {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .skill-card {
+      background: var(--paper-warm);
+      border: var(--border-thick);
+      padding: 24px;
+      box-shadow: 3px 3px 0px var(--ink);
+    }
+    .skill-card h4 {
+      font-family: var(--font-heavy);
+      font-size: 1rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--cobalt);
+    }
+    .skill-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    /* ── SECTION: PDF ARCHIVE & DOWNLOADS (#collaterals) ── */
+    .pdf-section {
+      background: var(--paper-warm);
+    }
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .pdf-card {
+      background: var(--white);
+      border: var(--border-heavy);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: var(--shadow-brutal-sm);
+      transition: var(--transition);
+    }
+    .pdf-card:hover {
+      border-color: var(--orange);
+      transform: translate(-3px, -3px);
+      box-shadow: var(--shadow-brutal);
+    }
+    .pdf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pdf-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      background: var(--orange);
+      color: var(--white);
+      padding: 3px 8px;
+      font-weight: 700;
+      border: 1px solid var(--ink);
+    }
+    .pdf-title {
+      font-family: var(--font-heavy);
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .pdf-desc {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+    .pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 10px 16px;
+      background: var(--lime);
+      color: var(--ink);
+      border: var(--border-thick);
+      box-shadow: 2px 2px 0px var(--ink);
+      transition: var(--transition);
+    }
+    .pdf-btn:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    /* ── SECTION: CONTACT (#contact) ── */
+    .contact-section {
+      background: var(--cobalt);
+      color: var(--white);
+      border-bottom: var(--border-heavy);
+      padding: 96px 0;
+    }
+    .contact-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .contact-heading {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 110px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact-action-card {
+      background: var(--white);
+      color: var(--ink);
+      border: var(--border-heavy);
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-brutal);
+      transition: var(--transition);
+    }
+    .contact-action-card:hover {
+      background: var(--lime);
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0px var(--ink);
+    }
+    .contact-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      display: block;
+    }
+    .contact-val {
+      font-family: var(--font-heavy);
+      font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+      color: var(--ink);
+      margin-top: 4px;
+    }
+    .contact-right-panel {
+      background: rgba(0, 0, 0, 0.25);
+      border: var(--border-thick);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-right-panel h4 {
+      font-family: var(--font-heavy);
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+    .contact-right-panel p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #E0E7FF;
+    }
+
+    /* ── FOOTER ── */
+    footer.swiss-footer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    /* ── LIGHTBOX DIALOG ── */
+    dialog#lightbox {
+      border: none;
+      padding: 0;
+      background: transparent;
+      max-width: 95vw;
+      max-height: 95vh;
+      margin: auto;
+    }
+    dialog#lightbox::backdrop {
+      background: rgba(23, 23, 23, 0.88);
+      backdrop-filter: blur(6px);
+    }
+    .lightbox-card {
+      background: var(--paper);
+      border: var(--border-heavy);
+      box-shadow: 12px 12px 0px var(--ink);
+      overflow: hidden;
+      max-width: 1000px;
+      width: 100%;
+    }
+    .lightbox-head {
+      background: var(--ink);
+      color: var(--lime);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .lightbox-close-btn {
+      color: var(--white);
+      font-family: var(--font-heavy);
+      font-size: 1.1rem;
+      background: var(--orange);
+      border: 1.5px solid var(--ink);
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .lightbox-close-btn:hover {
+      background: var(--lime);
+      color: var(--ink);
+    }
+    .lightbox-body {
+      padding: 16px;
+      background: #0D0D10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: 75vh;
+      overflow: auto;
+    }
+    .lightbox-body img {
+      max-height: 72vh;
+      max-width: 100%;
+      object-fit: contain;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .lightbox-foot {
+      padding: 12px 20px;
+      background: var(--paper);
+      border-top: var(--border-thick);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Toast Notification */
+    #copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--lime);
+      color: var(--ink);
+      border: var(--border-thick);
+      box-shadow: 4px 4px 0px var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 12px 20px;
+      z-index: 9999;
+      transform: translateY(150%);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #copy-toast.show {
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE MEDIA QUERIES ── */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .case-meta {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .grid-4-frames {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .sites-grid, .craft-grid, .clients-grid, .pdf-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-mobile-btn {
+        display: block;
+      }
+      .hero-stats-row {
+        grid-template-columns: 1fr;
+      }
+      .grid-4-frames, .grid-3-frames {
+        grid-template-columns: 1fr;
+      }
+      .sites-grid, .craft-grid, .clients-grid, .pdf-grid {
+        grid-template-columns: 1fr;
+      }
+      .xp-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .skills-quad {
+        grid-template-columns: 1fr;
+      }
+      .case-block {
+        padding: 22px;
+      }
+    }
+  
+    /* ── SECTION: ABOUT US & CORE SKILLS (#about) ── */
+    .about-section {
+      background: var(--paper-warm);
+      border-bottom: var(--border-heavy);
+      padding: 80px 0;
+    }
+    .about-summary-card {
+      background: var(--white);
+      border: var(--border-heavy);
+      padding: 40px;
+      box-shadow: var(--shadow-brutal);
+      margin-bottom: 36px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .about-summary-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .about-summary-text {
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+    .about-summary-text strong {
+      color: var(--cobalt);
+    }
+    .about-pillars-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .about-pillar-box {
+      background: var(--paper);
+      border: var(--border-thick);
+      padding: 14px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      box-shadow: 2px 2px 0px var(--ink);
+    }
+    .about-pillar-box strong {
+      display: block;
+      font-family: var(--font-heavy);
+      font-size: 0.95rem;
+      color: var(--cobalt);
+      margin-bottom: 4px;
+    }
+
+    .core-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .core-skill-card {
+      background: var(--white);
+      border: var(--border-heavy);
+      padding: 32px 26px;
+      box-shadow: var(--shadow-brutal);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      transition: var(--transition);
+    }
+    .core-skill-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: var(--shadow-brutal-hover);
+    }
+    .core-skill-card.uiux { border-top: 8px solid var(--cobalt); }
+    .core-skill-card.visual { border-top: 8px solid var(--orange); }
+    .core-skill-card.tools { border-top: 8px solid var(--lime); }
+
+    .core-skill-card h3 {
+      font-family: var(--font-heavy);
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .core-skill-card p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .skill-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 11px;
+      border: 1.5px solid var(--ink);
+      background: var(--paper-warm);
+      color: var(--ink);
+      box-shadow: 2px 2px 0px var(--ink);
+      transition: var(--transition);
+    }
+    .skill-pill:hover {
+      background: var(--lime);
+      transform: translateY(-2px);
+    }
+    .tool-pill {
+      font-family: var(--font-heavy);
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      border: var(--border-thick);
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 2px 2px 0px var(--ink);
+      transition: var(--transition);
+    }
+    .tool-pill:hover {
+      background: var(--cobalt);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .about-summary-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 28px;
+      }
+      .core-skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">V<span>.</span>ersha</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#brochures">Brochures</a></li>
-    <li><a href="#showcase">Showcase</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="mailto:vershatanwar621@gmail.com" class="nav-cta">Hire Me</a>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg-text">V</div>
-  <div class="hero-left fade-up">
-    <!-- <span class="hero-tag">Available for freelance</span> -->
-    <h1 class="hero-name">
-      Creative<br><em>Content</em><br>&amp; AI Design
-    </h1>
-    <p class="hero-title">UI/UX · AI Video · Social Media · Branding</p>
-    <p class="hero-desc">
-      I craft scroll-stopping content, build brands that breathe, and turn AI tools into competitive advantages. 5+ years of design thinking across screens, socials, and stories.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary">View My Work</a>
-      <a href="#contact" class="btn-ghost">Let's Talk</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-visual fade-up" style="transition-delay:0.2s">
-      <div class="hero-card-main">
-        <h2>Designing for the <em>AI era</em> — one frame at a time.</h2>
-        <p style="font-size:0.82rem; opacity:0.6; line-height:1.7; font-weight:300; margin-top:0.8rem;">From wireframes to viral reels, I bridge the gap between thoughtful UX and high-impact content creation.</p>
-        <div class="stat-row">
-          <div class="stat">
-            <div class="stat-num">5+</div>
-            <div class="stat-label">Years Exp.</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">30+</div>
-            <div class="stat-label">Live Projects</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">3</div>
-            <div class="stat-label">Brands Managed</div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-card-accent">AI · UX · Content · Video</div>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <svg width="14" height="24" viewBox="0 0 14 24" fill="none">
-      <rect x="1" y="1" width="12" height="22" rx="6" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="7" cy="7" r="2" fill="currentColor"/>
-    </svg>
-    Scroll
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-strip">
-  <div class="marquee-inner">
-    <span class="marquee-text">UI/UX Design</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">AI Video Generation</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">Social Media Management</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">Brand Identity</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">Content Creation</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">Video Editing</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">UI/UX Design</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">AI Video Generation</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">Social Media Management</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">Brand Identity</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">Content Creation</span>
-    <span class="marquee-text">✦</span>
-    <span class="marquee-text">Video Editing</span>
-    <span class="marquee-text">✦</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-text fade-up">
-      <div class="section-tag">About Me</div>
-      <h2 class="section-title">Where <em>creativity</em> meets strategy</h2>
-      <p>I'm Versha — a Faridabad-based designer with <strong>5+ years</strong> across UI/UX, AI content creation, graphic design, and social media management. I don't just make things look good; I make them <strong>work</strong>.</p>
-      <p>My edge? I operate fluently across two worlds — the precision of UX research and wireframing, and the instinct of a content creator who knows what makes people stop, watch, and engage.</p>
-      <p>Currently at <strong>JBH Tech Innovation</strong>, I design LMS platforms by day and craft AI-generated video content using Grok AI, Luma AI, and Pictory — tools that most designers are still figuring out.</p>
-      <div class="tools-grid" style="margin-top:2rem;">
-        <div class="tool-chip">Figma / Adobe XD</div>
-        <div class="tool-chip">Grok AI · Luma AI</div>
-        <div class="tool-chip">Pictory · Pika · Runway</div>
-        <div class="tool-chip">CapCut · Filmora</div>
-        <div class="tool-chip">Photoshop · Illustrator</div>
-        <div class="tool-chip">Canva · Premiere Pro</div>
+  <!-- ══════════════════════════════════════════════════════════════
+       SWISS TOP NAVIGATION
+       ══════════════════════════════════════════════════════════════ -->
+  <header class="swiss-nav">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a href="#hero" class="brand-mark">
+          <span class="brand-dot"></span>
+          <span>Versha Tanwar</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#web">UI/UX</a>
+          <a href="#craft">Craft</a>
+          <a href="#clients">Clients</a>
+          <a href="#experience">Experience</a>
+          <a href="#collaterals">PDFs</a>
+          <a href="#contact" class="nav-cta">Let's Talk ↗</a>
+        </nav>
+        <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Toggle menu">INDEX [☰]</button>
       </div>
     </div>
-    <div class="fade-up" style="transition-delay:0.15s">
-      <div class="about-stats">
-        <div class="about-stat">
-          <div class="num">5+</div>
-          <div class="label">Years of Experience</div>
-          <div class="desc">Across design, content, and digital marketing</div>
-        </div>
-        <div class="about-stat">
-          <div class="num">30+</div>
-          <div class="label">Live Projects</div>
-          <div class="desc">Shipped and live across industries</div>
-        </div>
-        <div class="about-stat">
-          <div class="num">3</div>
-          <div class="label">Brands Managed</div>
-          <div class="desc">End-to-end social presence, strategy to publish</div>
-        </div>
-        <div class="about-stat">
-          <div class="num">∞</div>
-          <div class="label">Ideas Per Day</div>
-          <div class="desc">Relentlessly curious, constantly creating</div>
-        </div>
-      </div>
-      <div class="experience-list" style="margin-top:3rem;">
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">UI/UX Designer & Content Specialist</div>
-              <div class="exp-company">JBH Tech Innovation</div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="#about" onclick="toggleMobileNav()">About &amp; Core Skills</a>
+      <a href="#work" onclick="toggleMobileNav()">Selected Work</a>
+      <a href="#web" onclick="toggleMobileNav()">UI/UX &amp; Web Products</a>
+      <a href="#craft" onclick="toggleMobileNav()">Craft &amp; Hierarchy</a>
+      <a href="#clients" onclick="toggleMobileNav()">Clients &amp; Socials</a>
+      <a href="#experience" onclick="toggleMobileNav()">Career &amp; Experience</a>
+      <a href="#collaterals" onclick="toggleMobileNav()">PDF Collaterals</a>
+      <a href="#contact" onclick="toggleMobileNav()">Get In Touch</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ══════════════════════════════════════════════════════════════
+         HERO SECTION: SWISS POSTER COMPOSITION
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hero-section" id="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <div class="hero-eyebrow-row">
+              <span class="swiss-stamp cobalt">Graphic &amp; Visual Designer</span>
+              <span class="swiss-stamp white">UI/UX Designer</span>
+              <span class="swiss-stamp orange">AI Video Specialist</span>
             </div>
-            <div class="exp-period">Dec 2024 – Present</div>
-          </div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Graphic Designer & Digital Marketing Exec</div>
-              <div class="exp-company">Cyber Beast – Creative Agency</div>
+
+            <h1 class="hero-title">
+              DESIGN THAT <br>
+              <span class="accent-word">LEADS</span> THE <br>
+              <span class="cobalt-word">EYE.</span>
+            </h1>
+
+            <p class="hero-lead">
+              I’m <strong>Versha</strong>, a multidisciplinary designer from Faridabad working across packaging, social media campaigns, print collateral, and digital interfaces. Every layout starts with <strong>one clear focal point</strong>, a disciplined palette, and type that commands attention.
+            </p>
+
+            <div class="hero-actions-row">
+              <a href="#work" class="btn-brutal primary">Explore 09 Brands ↓</a>
+              <a href="#contact" class="btn-brutal secondary">Initiate Project ↗</a>
+              <button class="btn-brutal orange" onclick="copyEmail()">Copy Email ✉</button>
             </div>
-            <div class="exp-period">Apr – Dec 2024</div>
-          </div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Graphic Designer</div>
-              <div class="exp-company">Hodor Infosec</div>
+
+            <div class="hero-stats-row">
+              <div class="hero-stat-card">
+                <strong>03+ Yrs</strong>
+                <span>Professional Design Experience</span>
+              </div>
+              <div class="hero-stat-card">
+                <strong>+40%</strong>
+                <span>Organic Engagement Growth for Accounts</span>
+              </div>
+              <div class="hero-stat-card">
+                <strong>09 Brands</strong>
+                <span>Curated In Gallery Below</span>
+              </div>
             </div>
-            <div class="exp-period">Nov 2023 – Mar 2024</div>
           </div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Graphic Designer</div>
-              <div class="exp-company">Karmacargomovers</div>
+
+          <div class="hero-right">
+            <div class="hero-poster-box">
+              <span class="swiss-stamp lavender" style="margin-bottom: 16px;">STUDIO MANIFESTO</span>
+              <h3>DISCIPLINE. CONTRAST. INTENT.</h3>
+              <p>
+                Visual noise is easy; clarity requires rigor. By pairing high-impact grotesk display typography with structured editorial grids, I engineer designs that communicate fast, build trust, and drive conversions across shelves, feeds, and browsers.
+              </p>
+              <div class="hero-disciplines">
+                <span class="discipline-chip">Social Media Systems</span>
+                <span class="discipline-chip">Packaging &amp; Labels</span>
+                <span class="discipline-chip">UI/UX Design Systems</span>
+                <span class="discipline-chip">B2B Print Collateral</span>
+                <span class="discipline-chip">AI Visual Generation</span>
+                <span class="discipline-chip">Campaign Direction</span>
+              </div>
             </div>
-            <div class="exp-period">Mar 2021 – Nov 2023</div>
+
+            <div style="background: var(--white); border: var(--border-heavy); padding: 20px; box-shadow: var(--shadow-brutal-sm); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--orange); font-weight: 700;">LOCATION &amp; STATUS</span>
+                <div style="font-family: var(--font-heavy); font-size: 1.1rem; margin-top: 2px;">FARIDABAD, HARYANA · AVAILABLE</div>
+              </div>
+              <span class="swiss-stamp" style="background: #10B981; color: #fff;">LIVE ●</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-tag">What I Do</div>
-  <h2 class="section-title">Skills &amp; <em>Expertise</em></h2>
-  <div class="skills-grid">
-    <div class="skill-card fade-up">
-      <div class="skill-icon">🎬</div>
-      <h3>AI Video Creation</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Grok AI</span>
-        <span class="skill-tag">Luma AI</span>
-        <span class="skill-tag">Pictory</span>
-        <span class="skill-tag">Veo</span>
-        <span class="skill-tag">Runway</span>
-        <span class="skill-tag">Pika</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="transition-delay:0.05s">
-      <div class="skill-icon">✂️</div>
-      <h3>Video Editing</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">CapCut</span>
-        <span class="skill-tag">Filmora</span>
-        <span class="skill-tag">Premiere Pro</span>
-        <span class="skill-tag">Final Cut Pro</span>
-        <span class="skill-tag">Short-form Reels</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="transition-delay:0.1s">
-      <div class="skill-icon">🎨</div>
-      <h3>UI/UX Design</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Adobe XD</span>
-        <span class="skill-tag">Wireframing</span>
-        <span class="skill-tag">Prototyping</span>
-        <span class="skill-tag">Design Systems</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="transition-delay:0.15s">
-      <div class="skill-icon">📱</div>
-      <h3>Social Media</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Instagram</span>
-        <span class="skill-tag">LinkedIn</span>
-        <span class="skill-tag">YouTube</span>
-        <span class="skill-tag">Content Strategy</span>
-        <span class="skill-tag">Carousels</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="transition-delay:0.2s">
-      <div class="skill-icon">🖋️</div>
-      <h3>Graphic Design</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Photoshop</span>
-        <span class="skill-tag">Illustrator</span>
-        <span class="skill-tag">Canva</span>
-        <span class="skill-tag">Brand Identity</span>
-        <span class="skill-tag">Packaging</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="transition-delay:0.25s">
-      <div class="skill-icon">📦</div>
-      <h3>E-commerce Content</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Amazon A+</span>
-        <span class="skill-tag">Product Listing</span>
-        <span class="skill-tag">Mockup Design</span>
-        <span class="skill-tag">Photo Retouching</span>
-      </div>
-    </div>
-  </div>
-</section>
+    
 
-<!-- MARQUEE 2 -->
-<div class="marquee-strip" style="background: var(--forest);">
-  <div class="marquee-inner" style="animation-direction: reverse;">
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Figma</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Grok AI</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Luma AI</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Runway</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">CapCut</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Photoshop</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Illustrator</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Pictory</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Figma</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Grok AI</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Luma AI</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">Runway</span>
-    <span class="marquee-text" style="color: rgba(255,255,255,0.5);">✦</span>
-  </div>
-</div>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="projects-intro fade-up">
-    <div>
-      <div class="section-tag">Selected Work</div>
-      <h2 class="section-title">Projects &amp; <em>Case Studies</em></h2>
-    </div>
-    <p>Live products, shipped experiences, and real brand impact — from EdTech platforms to industrial marketplaces.</p>
-  </div>
-
-  <div class="projects-grid">
-    <!-- Featured -->
-    <div class="project-card featured fade-up">
-      <div class="project-img project-img-logo">
-        <img src="image/Vedify.jpeg" alt="VedifAI project preview">
-        <div class="project-type-badge">EdTech · UI/UX</div>
-        <div class="project-img-overlay">
-          <a href="https://vedifai.com/#home" target="_blank" rel="noopener">View Live →</a>
-        </div>
-      </div>
-      <div class="project-body">
-        <h3>VedifAI — Hybrid Learning Management Platform</h3>
-        <p>Designed end-to-end UX for an EdTech platform enabling hybrid online and offline learning. Student registration, course enrollment, class scheduling — all on a single clean, mobile-first interface. The goal: make learning feel effortless, not institutional.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Figma</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">Responsive</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">UX Research</span>
+    <!-- ══════════════════════════════════════════════════════════════
+         SECTION 00: ABOUT US / PROFESSIONAL SUMMARY & CORE SKILLS
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="about-section" id="about">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="sec-header-left">
+            <span class="swiss-stamp cobalt">ABOUT US // PROFESSIONAL PROFILE</span>
+            <h2 class="sec-title">PROFILE &amp; CORE SKILLS</h2>
           </div>
-          <a href="https://vedifai.com/#home" target="_blank" rel="noopener" class="project-link">vedifai.com ↗</a>
+          <p class="sec-desc">
+            UI/UX Designer and Visual Creative Director with 3 years of hands-on experience delivering conversion-focused digital products and brand systems.
+          </p>
         </div>
-      </div>
-    </div>
 
-    <div class="project-card fade-up" style="transition-delay:0.1s">
-      <div class="project-img project-img-logo">
-        <img src="image/Supplyverge.jpeg" alt="SupplyVerge marketplace preview">
-        <div class="project-type-badge">B2B · UI/UX</div>
-        <div class="project-img-overlay">
-          <a href="https://supplyverge.com" target="_blank" rel="noopener">View Live →</a>
-        </div>
-      </div>
-      <div class="project-body">
-        <h3>SupplyVerge — Industrial B2B Marketplace</h3>
-        <p>UX for an industrial components platform serving business procurement users. Product specs, category navigation, inquiry workflows — designed for efficiency over aesthetics.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">UI/UX</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">B2B</span>
+        <!-- Professional Summary Card -->
+        <div class="about-summary-card">
+          <div class="about-summary-left">
+            <span class="swiss-stamp orange">PROFESSIONAL SUMMARY</span>
+            <p class="about-summary-text">
+              <strong>UI/UX Designer with 3 years of experience</strong> designing web and mobile products, from research and wireframes to high-fidelity prototypes and design systems. Strong visual-design foundation in branding, social media, packaging and print, plus hands-on experience producing <strong>AI-assisted video</strong> for marketing campaigns. Known for pairing usable, conversion-focused interfaces with consistent brand storytelling.
+            </p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="swiss-stamp white">3+ YRS EXPERIENCE</span>
+              <span class="swiss-stamp lavender">RESEARCH → DESIGN SYSTEM</span>
+              <span class="swiss-stamp lime">AI VIDEO SPECIALIST</span>
+            </div>
           </div>
-          <a href="https://supplyverge.com" target="_blank" rel="noopener" class="project-link">supplyverge.com ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card fade-up" style="transition-delay:0.15s">
-      <div class="project-img project-img-logo">
-        <img src="image/Yufmart.jpeg" alt="TheYouthMart e-commerce preview">
-        <div class="project-type-badge">E-Commerce</div>
-        <div class="project-img-overlay">
-          <a href="https://theyouthmart.com" target="_blank" rel="noopener">View Live →</a>
-        </div>
-      </div>
-      <div class="project-body">
-        <h3>TheYouthMart — E-Commerce Store</h3>
-        <p>Vibrant shopping experience for a stationery & sports brand. Product listings, cart, checkout — optimised for mobile-first shoppers.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">E-Commerce</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">Responsive</span>
+          <div class="about-pillars-grid">
+            <div class="about-pillar-box">
+              <strong>01 // Human-Centered Research</strong>
+              User research, customer personas, user journeys, iterative usability testing &amp; validation.
+            </div>
+            <div class="about-pillar-box">
+              <strong>02 // High-Fidelity Systems</strong>
+              Scalable component libraries, WCAG accessibility, fluid responsive breakpoints &amp; tokens.
+            </div>
+            <div class="about-pillar-box">
+              <strong>03 // Brand &amp; AI Storytelling</strong>
+              Cross-medium creative direction spanning packaging, print collaterals, and AI campaign video.
+            </div>
           </div>
-          <a href="https://theyouthmart.com" target="_blank" rel="noopener" class="project-link">theyouthmart.com ↗</a>
         </div>
-      </div>
-    </div>
 
-    <div class="project-card fade-up" style="transition-delay:0.2s">
-      <div class="project-img project-img-logo">
-        <img src="image/Jbh.jpeg" alt="Gagan Billing app preview">
-        <div class="project-type-badge">SaaS · UI</div>
-        <div class="project-img-overlay">
-          <a href="https://gagan-billing-ufr9.vercel.app" target="_blank" rel="noopener">View Live →</a>
-        </div>
-      </div>
-      <div class="project-body">
-        <h3>Gagan Billing App</h3>
-        <p>Fast, intuitive billing software for small businesses. Invoice generation and transaction management — designed for non-technical users with zero friction.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">UI Design</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">SaaS</span>
+        <!-- Core Skills 3-Card Grid -->
+        <div class="core-skills-grid">
+          <!-- Card 1: UI/UX Design -->
+          <div class="core-skill-card uiux">
+            <div>
+              <span class="swiss-stamp cobalt" style="margin-bottom: 12px;">DOMAIN 01</span>
+              <h3>UI/UX Design</h3>
+              <p>
+                From discovery and heuristic analysis to polished design systems and developer-ready handoffs.
+              </p>
+              <div class="skill-tags-list">
+                <span class="skill-pill">User research and personas</span>
+                <span class="skill-pill">Wireframing and prototyping</span>
+                <span class="skill-pill">Usability testing and iteration</span>
+                <span class="skill-pill">Responsive and accessible design</span>
+                <span class="skill-pill">Design systems and component libraries</span>
+                <span class="skill-pill">Agile collaboration (Jira, sprint planning)</span>
+              </div>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cobalt); font-weight: 700;">USER-CENTRIC · CONVERSION-FOCUSED</span>
           </div>
-          <a href="https://gagan-billing-ufr9.vercel.app" target="_blank" rel="noopener" class="project-link">View App ↗</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="project-card fade-up" style="transition-delay:0.25s">
-      <div class="project-img project-img-logo">
-        <img src="image/Airship.jpeg" alt="Airship India awareness platform preview">
-        <div class="project-type-badge">Awareness · UI</div>
-        <div class="project-img-overlay">
-          <a href="https://airshipindia.com" target="_blank" rel="noopener">View Live →</a>
-        </div>
-      </div>
-      <div class="project-body">
-        <h3>Airship India — Air Pollution Awareness</h3>
-        <p>Public health awareness platform presenting pollution data, safety guides, and product solutions with a clean, minimal UI built for maximum readability.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">UI Design</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">Editorial</span>
+          <!-- Card 2: Visual and Graphic Design -->
+          <div class="core-skill-card visual">
+            <div>
+              <span class="swiss-stamp orange" style="margin-bottom: 12px;">DOMAIN 02</span>
+              <h3>Visual &amp; Graphic Design</h3>
+              <p>
+                Multi-disciplinary graphic execution delivering unmistakable presence on shelves, billboards, and feeds.
+              </p>
+              <div class="skill-tags-list">
+                <span class="skill-pill">Brand identity and logo design</span>
+                <span class="skill-pill">Social media creatives</span>
+                <span class="skill-pill">Print, packaging and label design</span>
+                <span class="skill-pill">Photo editing, retouching and color correction</span>
+                <span class="skill-pill">Video editing and AI video (Grok AI, Luma AI, Pictory)</span>
+              </div>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--orange); font-weight: 700;">PRINT-READY · CAMPAIGN-READY</span>
           </div>
-          <a href="https://airshipindia.com" target="_blank" rel="noopener" class="project-link">airshipindia.com ↗</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="project-card fade-up" style="transition-delay:0.3s">
-      <div class="project-img project-img-logo">
-        <img src="image/Printdoot.webp" alt="Printdoot print-on-demand platform preview">
-        <div class="project-type-badge">E-Commerce · Print Services</div>
-        <div class="project-img-overlay">
-          <a href="https://printdoot.com" target="_blank" rel="noopener">View Live →</a>
-        </div>
-      </div>
-      <div class="project-body">
-        <h3>Printdoot — Custom Print-on-Demand Platform</h3>
-        <p>A comprehensive print-on-demand service offering custom business cards, flyers, banners, and promotional materials. Users can design, customize, and order prints online with intuitive tools, real-time previews, and fast delivery options.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">UI/UX</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">E-Commerce</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">Design Tools</span>
+          <!-- Card 3: Industry Tools -->
+          <div class="core-skill-card tools">
+            <div>
+              <span class="swiss-stamp lime" style="margin-bottom: 12px;">DOMAIN 03</span>
+              <h3>Tools &amp; Technologies</h3>
+              <p>
+                Proficient in industry-standard UI design tools, Adobe Creative Cloud suites, marketing, and agile management.
+              </p>
+              <div class="skill-tags-list">
+                <span class="tool-pill">Figma</span>
+                <span class="tool-pill">Adobe XD</span>
+                <span class="tool-pill">Photoshop</span>
+                <span class="tool-pill">Illustrator</span>
+                <span class="tool-pill">InDesign</span>
+                <span class="tool-pill">Mailchimp</span>
+                <span class="tool-pill">Canva</span>
+                <span class="tool-pill">CapCut</span>
+                <span class="tool-pill">Filmora</span>
+                <span class="tool-pill">Jira</span>
+                <span class="tool-pill">Grok AI</span>
+                <span class="tool-pill">Luma AI</span>
+                <span class="tool-pill">Pictory</span>
+              </div>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink); font-weight: 700;">FAST WORKFLOWS · PRODUCTION QUALITY</span>
           </div>
-          <a href="https://printdoot.com" target="_blank" rel="noopener" class="project-link">printdoot.com ↗</a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="project-card fade-up" style="transition-delay:0.35s">
-      <div class="project-img project-img-logo">
-        <img src="image/coreenact.png" alt="CoreEnact website preview">
-        <div class="project-type-badge">ERP · Web</div>
-        <div class="project-img-overlay">
-          <a href="https://www.coreenact.com" target="_blank" rel="noopener">View Live →</a>
-        </div>
-      </div>
-      <div class="project-body">
-        <h3>CoreEnact — Microsoft Dynamics ERP Website</h3>
-        <p>Design work for a Microsoft Dynamics 365 &amp; Copilot solutions partner — a tech-forward corporate site with a 3D visual identity, clear service positioning, and trust-driven enterprise layout.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Web Design</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">Enterprise</span>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SECTION 01: SELECTED WORK (09 COMPREHENSIVE CASE STUDIES)
+         ══════════════════════════════════════════════════════════════ -->
+    <section id="work">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="sec-header-left">
+            <span class="swiss-stamp orange">EXHIBITION // 01 TO 09</span>
+            <h2 class="sec-title">BRANDS, SHELVES &amp; FEEDS</h2>
           </div>
-          <a href="https://www.coreenact.com" target="_blank" rel="noopener" class="project-link">coreenact.com ↗</a>
+          <p class="sec-desc">
+            Nine curated real-world case studies across surprise travel, luxury real estate, FMCG packaging, B2B brochures, and electric mobility. Click any image to view in high resolution.
+          </p>
         </div>
-      </div>
-    </div>
 
-    <div class="project-card fade-up" style="transition-delay:0.4s">
-      <div class="project-img project-img-logo">
-        <img src="image/Jbh.jpeg" alt="JBH Tech Innovation platform preview">
-        <div class="project-type-badge">LMS · UI/UX</div>
-        <div class="project-img-overlay">
-          <a href="https://www.jbhtechinnovation.com" target="_blank" rel="noopener">View Live →</a>
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterCases('all', this)">All Works</button>
+          <button class="filter-btn" onclick="filterCases('social', this)">Social Media</button>
+          <button class="filter-btn" onclick="filterCases('packaging', this)">Packaging &amp; Labels</button>
+          <button class="filter-btn" onclick="filterCases('print', this)">Brochures &amp; Print</button>
+          <button class="filter-btn" onclick="filterCases('banners', this)">Campaign Banners</button>
+          <button class="filter-btn" onclick="filterCases('hospitality', this)">Hospitality &amp; Real Estate</button>
+        </div>
+
+        <div class="cases-container">
+
+          <!-- CASE 01: MYSTERY HOLIDAYS -->
+          <article class="case-block" data-category="social">
+            <div class="case-meta">
+              <div class="case-meta-left">
+                <span class="case-index">01 — Social Media</span>
+                <h3 class="case-title">Mystery Holidays</h3>
+                <div class="case-swatches">
+                  <span class="swatch-circle" style="background: #E8174F;" title="#E8174F"></span>
+                  <span class="swatch-circle" style="background: #0B0B0C;" title="#0B0B0C"></span>
+                  <span class="swatch-circle" style="background: #3A3A3C;" title="#3A3A3C"></span>
+                  <span class="swatch-circle" style="background: #FBE3E6;" title="#FBE3E6"></span>
+                </div>
+                <a class="case-link-badge" href="https://www.instagram.com/mysteryholidays/" target="_blank" rel="noopener">
+                  @mysteryholidays ↗
+                </a>
+              </div>
+              <div class="case-meta-right">
+                <p class="case-desc">
+                  A social feed for a surprise-travel brand with a bold pink, black and white identity. Each format has a clear job: a seasonal offer with a discount code, a destinations reveal, a myth-vs-fact explainer and a tips carousel. A checkerboard frame, flat type and cut-out collage give it a playful, recognisable voice.
+                </p>
+                <div class="case-tags">
+                  <span class="case-tag">Instagram Posts</span>
+                  <span class="case-tag">Campaign Offers</span>
+                  <span class="case-tag">Explainers</span>
+                  <span class="case-tag">Brand Voice</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-4-frames">
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/mystery_holidays_1.jpg', 'Mystery Holidays — Father’s Day Campaign Offer', 'Social Media Campaign')">
+                <img src="image/work_gallery/mystery_holidays_1.jpg" alt="Father’s Day offer" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/mystery_holidays_2.jpg', 'Mystery Holidays — Last Week’s Mystery Destinations Reveal', 'Social Media Campaign')">
+                <img src="image/work_gallery/mystery_holidays_2.jpg" alt="Last week’s mystery destinations" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/mystery_holidays_3.jpg', 'Mystery Holidays — Myth vs Fact Explainer Post', 'Social Media Campaign')">
+                <img src="image/work_gallery/mystery_holidays_3.jpg" alt="Myth vs fact" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/mystery_holidays_4.jpg', 'Mystery Holidays — Travel Hacks &amp; Tips Carousel', 'Social Media Campaign')">
+                <img src="image/work_gallery/mystery_holidays_4.jpg" alt="Travel hacks" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- CASE 02: VIVA HOLIDAYS -->
+          <article class="case-block" data-category="social">
+            <div class="case-meta">
+              <div class="case-meta-left">
+                <span class="case-index">02 — Social Media</span>
+                <h3 class="case-title">Viva Holidays</h3>
+                <div class="case-swatches">
+                  <span class="swatch-circle" style="background: #1B6FC2;" title="#1B6FC2"></span>
+                  <span class="swatch-circle" style="background: #F0476B;" title="#F0476B"></span>
+                  <span class="swatch-circle" style="background: #0F2747;" title="#0F2747"></span>
+                  <span class="swatch-circle" style="background: #FFFFFF;" title="#FFFFFF"></span>
+                </div>
+                <a class="case-link-badge" href="https://www.instagram.com/viva_holidays/" target="_blank" rel="noopener">
+                  @viva_holidays ↗
+                </a>
+              </div>
+              <div class="case-meta-right">
+                <p class="case-desc">
+                  A cruise-holiday carousel for a travel brand. The cover pairs a large title with one bright pink tagline over a deep-blue skyline, so the offer reads in a second. Each inner slide repeats a single structure: a day-range heading, a short intro, a highlights list, and a translucent white panel that keeps text readable over full-bleed photography.
+                </p>
+                <div class="case-tags">
+                  <span class="case-tag">Instagram Carousel</span>
+                  <span class="case-tag">Itinerary Layout</span>
+                  <span class="case-tag">Photo + Text Overlay</span>
+                  <span class="case-tag">Brand Consistency</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-4-frames">
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/viva_holidays_1.jpg', 'Viva Holidays — Niagara Falls, NY &amp; Canada Cruise Cover', 'Travel Social Media')">
+                <img src="image/work_gallery/viva_holidays_1.jpg" alt="Niagara Falls, New York and Canada cruise cover" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/viva_holidays_2.jpg', 'Viva Holidays — Start in Niagara Falls (Days 1 to 3)', 'Travel Social Media')">
+                <img src="image/work_gallery/viva_holidays_2.jpg" alt="Start in Niagara Falls days 1 to 3" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/viva_holidays_3.jpg', 'Viva Holidays — New York City Highlights (Days 4 to 5)', 'Travel Social Media')">
+                <img src="image/work_gallery/viva_holidays_3.jpg" alt="New York City days 4 to 5" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/viva_holidays_4.jpg', 'Viva Holidays — Cruise Begins (Day 6 Itinerary)', 'Travel Social Media')">
+                <img src="image/work_gallery/viva_holidays_4.jpg" alt="Your cruise begins day 6" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- CASE 03: REVORAL Q-PUFF MOUTHWASH -->
+          <article class="case-block" data-category="social">
+            <div class="case-meta">
+              <div class="case-meta-left">
+                <span class="case-index">03 — Social Media</span>
+                <h3 class="case-title">Revoral Q-Puff Mouthwash</h3>
+                <div class="case-swatches">
+                  <span class="swatch-circle" style="background: #2EB6E8;" title="#2EB6E8"></span>
+                  <span class="swatch-circle" style="background: #B7E04A;" title="#B7E04A"></span>
+                  <span class="swatch-circle" style="background: #0F3A5C;" title="#0F3A5C"></span>
+                  <span class="swatch-circle" style="background: #FFFFFF;" title="#FFFFFF"></span>
+                </div>
+              </div>
+              <div class="case-meta-right">
+                <p class="case-desc">
+                  A product campaign that tells one story per post: pure and natural, breath for smokers, cavity protection. Cool aqua keeps the bottle recognisable, lime accents flag the key message, and large concept imagery such as lungs and ice creates a clear entry point.
+                </p>
+                <div class="case-tags">
+                  <span class="case-tag">Instagram Posts</span>
+                  <span class="case-tag">Concept Visuals</span>
+                  <span class="case-tag">Product Campaign</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-4-frames">
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/revoral_qpuff_1.jpg', 'Revoral Q-Puff — 100% Pure &amp; Natural Herbal Formula', 'FMCG Product Campaign')">
+                <img src="image/work_gallery/revoral_qpuff_1.jpg" alt="Q-Puff 100% pure and natural" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/revoral_qpuff_2.jpg', 'Revoral Q-Puff — Breath Beyond Boundaries Smokers Post', 'FMCG Product Campaign')">
+                <img src="image/work_gallery/revoral_qpuff_2.jpg" alt="Q-Puff Breath Beyond Boundaries" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/revoral_qpuff_3.jpg', 'Revoral Q-Puff — Healthy Lungs &amp; Cavity Protection Concept', 'FMCG Product Campaign')">
+                <img src="image/work_gallery/revoral_qpuff_3.jpg" alt="Q-Puff healthy lungs" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/revoral_qpuff_4.jpg', 'Revoral Q-Puff — Fresh Breath Ice Splash Bottle Creative', 'FMCG Product Campaign')">
+                <img src="image/work_gallery/revoral_qpuff_4.jpg" alt="Q-Puff fresh breath" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- CASE 04: STJ MOHALI CITI CENTRE -->
+          <article class="case-block" data-category="hospitality">
+            <div class="case-meta">
+              <div class="case-meta-left">
+                <span class="case-index">04 — Real Estate</span>
+                <h3 class="case-title">STJ Mohali Citi Centre</h3>
+                <div class="case-swatches">
+                  <span class="swatch-circle" style="background: #0D0D10;" title="#0D0D10"></span>
+                  <span class="swatch-circle" style="background: #C9A24B;" title="#C9A24B"></span>
+                  <span class="swatch-circle" style="background: #8A8D96;" title="#8A8D96"></span>
+                  <span class="swatch-circle" style="background: #F2E9D3;" title="#F2E9D3"></span>
+                </div>
+              </div>
+              <div class="case-meta-right">
+                <p class="case-desc">
+                  Premium residential posts built on black and gold for a luxury feel. Elegant headlines sit above architectural and interior photography, with location and “4 min from airport” set in a gold bar so the key selling point is never missed.
+                </p>
+                <div class="case-tags">
+                  <span class="case-tag">Luxury Palette</span>
+                  <span class="case-tag">High-End Real Estate</span>
+                  <span class="case-tag">Architectural Framing</span>
+                  <span class="case-tag">Social Campaign</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-4-frames">
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/stj_mohali_1.jpg', 'STJ Mohali Citi Centre — Luxury Residential Properties', 'Real Estate Creative')">
+                <img src="image/work_gallery/stj_mohali_1.jpg" alt="STJ residential properties" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/stj_mohali_2.jpg', 'STJ Mohali Citi Centre — Experience New Residential Life', 'Real Estate Creative')">
+                <img src="image/work_gallery/stj_mohali_2.jpg" alt="STJ new residential life" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/stj_mohali_3.jpg', 'STJ Mohali Citi Centre — Signature Tower Architecture', 'Real Estate Creative')">
+                <img src="image/work_gallery/stj_mohali_3.jpg" alt="STJ residential properties tower" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/stj_mohali_4.png', 'STJ Mohali Citi Centre — Elevate Your Living Experience', 'Real Estate Creative')">
+                <img src="image/work_gallery/stj_mohali_4.png" alt="STJ elevate your living experience" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- CASE 05: SAHASTTRANSH HOMES, INDORE -->
+          <article class="case-block" data-category="hospitality">
+            <div class="case-meta">
+              <div class="case-meta-left">
+                <span class="case-index">05 — Hospitality</span>
+                <h3 class="case-title">Sahasttransh Homes, Indore</h3>
+                <div class="case-swatches">
+                  <span class="swatch-circle" style="background: #EBCFC4;" title="#EBCFC4"></span>
+                  <span class="swatch-circle" style="background: #C0392B;" title="#C0392B"></span>
+                  <span class="swatch-circle" style="background: #2B2B2E;" title="#2B2B2E"></span>
+                  <span class="swatch-circle" style="background: #FFFFFF;" title="#FFFFFF"></span>
+                </div>
+              </div>
+              <div class="case-meta-right">
+                <p class="case-desc">
+                  A girls’ hostel campaign in soft blush and white, establishing a calm and trustworthy tone for families and students. One oversized typographic post breaks the grid to stop the scroll. Contact details sit at the base of each layout in the exact same position for instant recall.
+                </p>
+                <div class="case-tags">
+                  <span class="case-tag">Typographic Layout</span>
+                  <span class="case-tag">Consistent System</span>
+                  <span class="case-tag">Lead Generation</span>
+                  <span class="case-tag">Hospitality Brand</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-4-frames">
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/sahasttransh_homes_1.png', 'Sahasttransh Homes — Girls Hostel Open Door Editorial Post', 'Hospitality Campaign')">
+                <img src="image/work_gallery/sahasttransh_homes_1.png" alt="Girls hostel open door post" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/sahasttransh_homes_2.jpg', 'Sahasttransh Homes — Premium PG for Girls in Indore', 'Hospitality Campaign')">
+                <img src="image/work_gallery/sahasttransh_homes_2.jpg" alt="PG for girls in Indore" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/sahasttransh_homes_3.jpg', 'Sahasttransh Homes — Limited Beds Booking Urgency', 'Hospitality Campaign')">
+                <img src="image/work_gallery/sahasttransh_homes_3.jpg" alt="Girls hostels limited beds" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/sahasttransh_homes_4.jpg', 'Sahasttransh Homes — Are You Looking For Girls Hostel Ad', 'Hospitality Campaign')">
+                <img src="image/work_gallery/sahasttransh_homes_4.jpg" alt="Are you looking girls hostel" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- CASE 06: MOKSH CAD & RECRUITING -->
+          <article class="case-block" data-category="print">
+            <div class="case-meta">
+              <div class="case-meta-left">
+                <span class="case-index">06 — B2B Brochures</span>
+                <h3 class="case-title">Moksh CAD &amp; Moksh Recruiting</h3>
+                <div class="case-swatches">
+                  <span class="swatch-circle" style="background: #2563A0;" title="#2563A0"></span>
+                  <span class="swatch-circle" style="background: #27A844;" title="#27A844"></span>
+                  <span class="swatch-circle" style="background: #0F1A14;" title="#0F1A14"></span>
+                  <span class="swatch-circle" style="background: #FFFFFF;" title="#FFFFFF"></span>
+                </div>
+              </div>
+              <div class="case-meta-right">
+                <p class="case-desc">
+                  Two business brochures for sister brands that share a unified blue and green identity system. Large headlines, service tiles and numbered benefit cards make dense B2B corporate information effortless to scan, while direct contact details sit in a fixed footer.
+                </p>
+                <div class="case-tags">
+                  <span class="case-tag">B2B Brochures</span>
+                  <span class="case-tag">Information Design</span>
+                  <span class="case-tag">Print &amp; Digital</span>
+                  <span class="case-tag">Engineering Brand</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-4-frames">
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/moksh_cad_recruiting_1.jpg', 'Moksh CAD — Engineering Design Services Brochure Page 1', 'Corporate Print Collateral')">
+                <img src="image/work_gallery/moksh_cad_recruiting_1.jpg" alt="Moksh CAD brochure page 1" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/moksh_cad_recruiting_2.jpg', 'Moksh CAD — Capabilities &amp; Software Brochure Page 2', 'Corporate Print Collateral')">
+                <img src="image/work_gallery/moksh_cad_recruiting_2.jpg" alt="Moksh CAD brochure page 2" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/moksh_cad_recruiting_3.jpg', 'Moksh Recruiting — Talent Acquisition Brochure Page 1', 'Corporate Print Collateral')">
+                <img src="image/work_gallery/moksh_cad_recruiting_3.jpg" alt="Moksh Recruiting brochure page 1" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/moksh_cad_recruiting_4.jpg', 'Moksh Recruiting — Hiring Solutions Brochure Page 2', 'Corporate Print Collateral')">
+                <img src="image/work_gallery/moksh_cad_recruiting_4.jpg" alt="Moksh Recruiting brochure page 2" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- CASE 07: SNACC — THE FOOD SPOT -->
+          <article class="case-block" data-category="print">
+            <div class="case-meta">
+              <div class="case-meta-left">
+                <span class="case-index">07 — Restaurant Flyer</span>
+                <h3 class="case-title">Snacc — The Food Spot</h3>
+                <div class="case-swatches">
+                  <span class="swatch-circle" style="background: #E8641E;" title="#E8641E"></span>
+                  <span class="swatch-circle" style="background: #17803D;" title="#17803D"></span>
+                  <span class="swatch-circle" style="background: #C8703A;" title="#C8703A"></span>
+                  <span class="swatch-circle" style="background: #FBF6DD;" title="#FBF6DD"></span>
+                </div>
+              </div>
+              <div class="case-meta-right">
+                <p class="case-desc">
+                  A promotional menu flyer for a Toronto-area food spot. Appetising food photography does the selling, three menu columns are colour-blocked in green and terracotta, and a dashed “Free Tea” voucher coupon gives the layout one unmistakable call to action.
+                </p>
+                <div class="case-tags">
+                  <span class="case-tag">Promotional Flyer</span>
+                  <span class="case-tag">Menu Layout</span>
+                  <span class="case-tag">Voucher Coupon</span>
+                  <span class="case-tag">Print Production</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-1-frame">
+              <button class="zoom-frame" style="max-height: 600px;" onclick="openLightbox('image/work_gallery/snacc_food_spot_1.png', 'Snacc — The Food Spot Toronto Menu &amp; Offer Flyer', 'Restaurant Print Collateral')">
+                <img src="image/work_gallery/snacc_food_spot_1.png" alt="Snacc flyer" loading="lazy" style="object-position: top;">
+                <span class="zoom-frame-badge">ZOOM FULL FLYER 🔍</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- CASE 08: LAKCY PICKLES & JAMS -->
+          <article class="case-block" data-category="packaging">
+            <div class="case-meta">
+              <div class="case-meta-left">
+                <span class="case-index">08 — Packaging &amp; Labels</span>
+                <h3 class="case-title">Lakcy Pickles &amp; Jams</h3>
+                <div class="case-swatches">
+                  <span class="swatch-circle" style="background: #1E7A3A;" title="#1E7A3A"></span>
+                  <span class="swatch-circle" style="background: #F29A1F;" title="#F29A1F"></span>
+                  <span class="swatch-circle" style="background: #C8261E;" title="#C8261E"></span>
+                  <span class="swatch-circle" style="background: #F6E7B4;" title="#F6E7B4"></span>
+                </div>
+              </div>
+              <div class="case-meta-right">
+                <p class="case-desc">
+                  A full label and packaging range for jars of pickle, fruit jam and moringa powder. A deep green field for pickles and warm fruit tones for jams give each SKU its own unmistakable colour code. Brand name first, flavour second, then nutritional and legal details in a quiet, ordered tier.
+                </p>
+                <div class="case-tags">
+                  <span class="case-tag">Label Design</span>
+                  <span class="case-tag">Colour Coding</span>
+                  <span class="case-tag">Ad Creatives</span>
+                  <span class="case-tag">Print-Ready Packaging</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-3-frames">
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/lakcy_pickles_1.png', 'Lakcy Pickles — Mango &amp; Mixed Pickle Commercial Ad Creatives', 'Packaging &amp; Ad Creatives')">
+                <img src="image/work_gallery/lakcy_pickles_1.png" alt="Lakcy mango and mix pickle ad creatives" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/lakcy_pickles_2.png', 'Lakcy Foods — Fruit Jam &amp; Moringa Leaf Powder Jars', 'Packaging &amp; Label Design')">
+                <img src="image/work_gallery/lakcy_pickles_2.png" alt="Lakcy jam and moringa labels" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/lakcy_pickles_3.png', 'Lakcy Pickles — Complete Label Series &amp; Compliance Tier', 'Packaging &amp; Label Design')">
+                <img src="image/work_gallery/lakcy_pickles_3.png" alt="Lakcy pickle label series" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- CASE 09: FR ELECTRIC -->
+          <article class="case-block" data-category="banners">
+            <div class="case-meta">
+              <div class="case-meta-left">
+                <span class="case-index">09 — Sales Banners</span>
+                <h3 class="case-title">FR Electric Scooters</h3>
+                <div class="case-swatches">
+                  <span class="swatch-circle" style="background: #0B2A5B;" title="#0B2A5B"></span>
+                  <span class="swatch-circle" style="background: #2D9CDB;" title="#2D9CDB"></span>
+                  <span class="swatch-circle" style="background: #6A2FC9;" title="#6A2FC9"></span>
+                  <span class="swatch-circle" style="background: #2E9B4E;" title="#2E9B4E"></span>
+                </div>
+              </div>
+              <div class="case-meta-right">
+                <p class="case-desc">
+                  High-converting digital sales banners for an electric scooter manufacturer. The vehicle leads every composition, model name set big, price and battery range highlighted as key buying triggers, paired with a high-contrast CTA. Deep electric blues anchor the brand, while vibrant green nods to eco sustainability.
+                </p>
+                <div class="case-tags">
+                  <span class="case-tag">Web &amp; Social Banners</span>
+                  <span class="case-tag">Product Focus</span>
+                  <span class="case-tag">Call to Action</span>
+                  <span class="case-tag">EV Mobility</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-3-frames">
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/fr_electric_1.jpg', 'FR Electric — Sniper Flagship Model Hero Launch Banner', 'Digital Campaign Banner')">
+                <img src="image/work_gallery/fr_electric_1.jpg" alt="FR Electric Sniper hero banner" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/fr_electric_2.jpg', 'FR Electric — Dealership &amp; Family Promo Banner', 'Digital Campaign Banner')">
+                <img src="image/work_gallery/fr_electric_2.jpg" alt="FR Electric Join our family banner" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+              <button class="zoom-frame" onclick="openLightbox('image/work_gallery/fr_electric_3.png', 'FR Electric — Multi-Variant Social Feed Series', 'Digital Campaign Banner')">
+                <img src="image/work_gallery/fr_electric_3.png" alt="FR Electric social posts" loading="lazy">
+                <span class="zoom-frame-badge">ZOOM 🔍</span>
+              </button>
+            </div>
+          </article>
+
         </div>
       </div>
-      <div class="project-body">
-        <h3>JBH Tech Innovation — LMS & Platform Design</h3>
-        <p>Ongoing UI/UX work for learning and training flows at my current role — clear course navigation, learner onboarding, and a smooth experience across desktop and mobile screens.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">LMS</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">UI/UX</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">Product Design</span>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SECTION 02: UI/UX & WEB PRODUCTS (#web)
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="web-section" id="web">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="sec-header-left">
+            <span class="swiss-stamp cobalt">LIVE DIGITAL PLATFORMS</span>
+            <h2 class="sec-title">WEBSITES &amp; PRODUCTS</h2>
           </div>
-          <a href="https://www.jbhtechinnovation.com" target="_blank" rel="noopener" class="project-link">jbhtechinnovation.com ↗</a>
+          <p class="sec-desc">
+            Production web platforms and interfaces designed by Versha. Clean UX flows, robust design systems, and responsive layouts. Each link opens live in a new tab.
+          </p>
         </div>
-      </div>
-    </div>
 
-    <div class="project-card fade-up" style="transition-delay:0.45s">
-      <div class="project-img project-img-logo">
-        <img src="image/watlair.png" alt="Watlair footwear store preview">
-        <div class="project-type-badge">Footwear · E-Commerce</div>
-        <div class="project-img-overlay">
-          <a href="https://www.watlair.com" target="_blank" rel="noopener">View Live →</a>
+        <div class="sites-grid">
+          <!-- 01 Coreenact -->
+          <a class="site-card" href="https://www.coreenact.com/" target="_blank" rel="noopener">
+            <div class="site-logo-frame">
+              <img src="image/work_gallery/logo_coreenact.png" alt="Coreenact logo">
+            </div>
+            <span class="site-card-num">01 // ERP &amp; ENTERPRISE</span>
+            <h3 class="site-card-title">Coreenact</h3>
+            <span class="site-card-url">coreenact.com ↗</span>
+          </a>
+
+          <!-- 02 Airship India -->
+          <a class="site-card" href="https://airshipindia.com/" target="_blank" rel="noopener">
+            <div class="site-logo-frame dark">
+              <img src="image/work_gallery/logo_airship.png" alt="Airship India logo">
+            </div>
+            <span class="site-card-num">02 // DIGITAL AGENCY</span>
+            <h3 class="site-card-title">Airship India</h3>
+            <span class="site-card-url">airshipindia.com ↗</span>
+          </a>
+
+          <!-- 03 JBH Tech Innovation -->
+          <a class="site-card" href="https://www.jbhtechinnovation.com/" target="_blank" rel="noopener">
+            <div class="site-logo-frame">
+              <img src="image/work_gallery/logo_jbh.png" alt="JBH Tech Innovation logo">
+            </div>
+            <span class="site-card-num">03 // SOFTWARE INNOVATION</span>
+            <h3 class="site-card-title">JBH Tech Innovation</h3>
+            <span class="site-card-url">jbhtechinnovation.com ↗</span>
+          </a>
+
+          <!-- 04 PrintDoot -->
+          <a class="site-card" href="https://printdoot.com/" target="_blank" rel="noopener">
+            <div class="site-logo-frame">
+              <img src="image/work_gallery/logo_printdoot.png" alt="PrintDoot logo">
+            </div>
+            <span class="site-card-num">04 // WEB-TO-PRINT COMMERCE</span>
+            <h3 class="site-card-title">PrintDoot</h3>
+            <span class="site-card-url">printdoot.com ↗</span>
+          </a>
+
+          <!-- 05 Watlair -->
+          <a class="site-card" href="https://www.watlair.com/" target="_blank" rel="noopener">
+            <div class="site-logo-frame">
+              <img src="image/work_gallery/logo_watlair.png" alt="Watlair logo">
+            </div>
+            <span class="site-card-num">05 // LUXURY FASHION D2C</span>
+            <h3 class="site-card-title">Watlair</h3>
+            <span class="site-card-url">watlair.com ↗</span>
+          </a>
+
+          <!-- 06 Gagan Billing -->
+          <a class="site-card" href="https://gagan-billing-ufr9.vercel.app/" target="_blank" rel="noopener">
+            <div class="site-logo-frame">
+              <img src="image/work_gallery/logo_jbh.png" alt="JBH Tech Innovation logo">
+            </div>
+            <span class="site-card-num">06 // SAAS BILLING PORTAL</span>
+            <h3 class="site-card-title">Gagan Billing</h3>
+            <span class="site-card-url">gagan-billing-ufr9.vercel.app ↗</span>
+          </a>
+
+          <!-- 07 Venus Meddoor -->
+          <a class="site-card" href="https://www.venushospitaldoorsolutions.com/" target="_blank" rel="noopener">
+            <div class="site-logo-frame">
+              <img src="image/work_gallery/logo_venus.jpeg" alt="Venus Hospital Door Solutions logo">
+            </div>
+            <span class="site-card-num">07 // HOSPITAL DOOR SOLUTIONS</span>
+            <h3 class="site-card-title">Venus Meddoor</h3>
+            <span class="site-card-url">venushospitaldoorsolutions.com ↗</span>
+          </a>
+
+          <!-- 08 VedifAI LMS Platform -->
+          <a class="site-card" href="https://www.vedifai.com/" target="_blank" rel="noopener">
+            <div class="site-logo-frame">
+              <img src="image/Vedify.jpeg" alt="VedifAI LMS interface preview" style="max-height: 90px; object-fit: cover;">
+            </div>
+            <span class="site-card-num">08 // AI EDUCATION PLATFORM</span>
+            <h3 class="site-card-title">VedifAI LMS</h3>
+            <span class="site-card-url">vedifai.com ↗</span>
+          </a>
+
+          <!-- 09 SupplyVerge -->
+          <a class="site-card" href="https://www.supplyverge.com/" target="_blank" rel="noopener">
+            <div class="site-logo-frame">
+              <img src="image/Supplyverge.jpeg" alt="SupplyVerge supply chain platform" style="max-height: 90px; object-fit: cover;">
+            </div>
+            <span class="site-card-num">09 // B2B SUPPLY CHAIN</span>
+            <h3 class="site-card-title">SupplyVerge</h3>
+            <span class="site-card-url">supplyverge.com ↗</span>
+          </a>
         </div>
       </div>
-      <div class="project-body">
-        <h3>Watlair — Footwear Brand Storefront</h3>
-        <p>Design for a minimalist D2C footwear brand launching its "Drift" shoe — bold product storytelling, a Shopify storefront layout, and a clean visual language built around a single hero product.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">E-Commerce</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">Branding</span>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SECTION 03: CRAFT & HOW I THINK (#craft)
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="craft-section" id="craft">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="sec-header-left">
+            <span class="swiss-stamp white">DESIGN METHODOLOGY</span>
+            <h2 class="sec-title">HIERARCHY, COLOUR &amp; TYPE</h2>
           </div>
-          <a href="https://www.watlair.com" target="_blank" rel="noopener" class="project-link">watlair.com ↗</a>
+          <p class="sec-desc">
+            Three core design principles applied to every packaging label, social post, corporate brochure, and digital interface above.
+          </p>
         </div>
-      </div>
-    </div>
 
-    <div class="project-card fade-up" style="transition-delay:0.5s">
-      <div class="project-img project-img-logo">
-        <img src="image/venusmeddoor.png" alt="Venus Meddoor medical doors preview">
-        <div class="project-type-badge">Healthcare · Web</div>
-        <div class="project-img-overlay">
-          <a href="https://venusmeddoor.com" target="_blank" rel="noopener">View Live →</a>
-        </div>
-      </div>
-      <div class="project-body">
-        <h3>Venus Meddoor — Medical Door Manufacturer</h3>
-        <p>Website design for a healthcare infrastructure manufacturer of hermetic OT doors, radiation-shielding doors, and surgical equipment — precise product showcases and a trust-driven, technical B2B layout.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Web Design</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">Healthcare B2B</span>
+        <div class="craft-grid">
+          <!-- Card 1: Visual Hierarchy -->
+          <div class="craft-card">
+            <div>
+              <span class="swiss-stamp orange" style="margin-bottom: 12px;">PRINCIPLE 01</span>
+              <h3>Visual Hierarchy</h3>
+              <p>
+                Size, weight and placement tell the viewer what to read first, second and last. One dominant hero element, one supporting message, and one decisive action.
+              </p>
+            </div>
+            <div class="craft-demo-box">
+              <div class="h1-demo">Headline First</div>
+              <div class="h2-demo">Supporting Message Second</div>
+              <div class="h3-demo">Technical specifications and fine print last</div>
+              <span class="cta-demo-pill">Decisive Action ↗</span>
+            </div>
           </div>
-          <a href="https://venusmeddoor.com" target="_blank" rel="noopener" class="project-link">venusmeddoor.com ↗</a>
-        </div>
-      </div>
-    </div>
 
-    <!-- <div class="project-card fade-up" style="transition-delay:0.3s">
-      <div class="project-img project-img-logo">
-        <img src="image/Jbh.jpeg" alt="JBH Tech Innovation LMS preview">
-        <div class="project-type-badge">LMS · UI/UX</div>
-      </div>
-      <div class="project-body">
-        <h3>JBH Tech Innovation — LMS Experience Design</h3>
-        <p>Ongoing UI/UX work for learning and training flows, focused on clear course navigation, learner onboarding, and a smooth experience across desktop and mobile screens.</p>
-        <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">LMS</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">UI/UX</span>
-            <span class="project-tag">·</span>
-            <span class="project-tag">Product Design</span>
+          <!-- Card 2: Colour Strategy -->
+          <div class="craft-card">
+            <div>
+              <span class="swiss-stamp cobalt" style="margin-bottom: 12px;">PRINCIPLE 02</span>
+              <h3>Colour Strategy</h3>
+              <p>
+                A dominant neutral, a secondary supporting tone, and one sharp accent for what truly matters. Palettes are engineered for contrast that stays legible in crowded feeds.
+              </p>
+            </div>
+            <div class="craft-demo-box">
+              <div class="palette-ratio-bar">
+                <div class="ratio-part"></div>
+                <div class="ratio-part"></div>
+                <div class="ratio-part"></div>
+              </div>
+              <small class="ratio-caption">60% Base Canvas · 30% Supporting Tone · 10% Sharp Accent</small>
+            </div>
           </div>
-          <span class="project-link">Current Role</span>
+
+          <!-- Card 3: Typography Discipline -->
+          <div class="craft-card">
+            <div>
+              <span class="swiss-stamp lavender" style="margin-bottom: 12px;">PRINCIPLE 03</span>
+              <h3>Typography Discipline</h3>
+              <p>
+                Pair an expressive, monumental display face with a disciplined, quiet text face. High contrast in scale and weight generates visual rhythm while preserving readability.
+              </p>
+            </div>
+            <div class="craft-demo-box">
+              <div class="tp-huge">Aa</div>
+              <div class="tp-sub">Syne &amp; Archivo Black for Display</div>
+              <div class="tp-body">Space Grotesk + IBM Plex Mono set with generous breathing room.</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div> -->
-  </div>
+    </section>
 
-  <!-- Social Media Section -->
-  <div style="margin-top: 5rem;">
-    <div class="section-tag fade-up">Social Media & Brand Management</div>
-    <h2 class="section-title fade-up">Brands I've <em>Built & Grown</em></h2>
-    <div class="social-grid">
-      <div class="social-card fade-up">
-        <img src="image/cyberbeast.jpeg" alt="Cyber Beast Media brand work" class="social-card-image">
-        <div class="social-platform">Digital Marketing Agency · Instagram</div>
-        <h3>Cyber Beast Media — Agency Brand Identity</h3>
-        <p>Owned the complete creative output for a full-service digital agency's own Instagram. Bold motion graphics, client case study reels, and a sharp visual identity built to position the brand as a credible, modern agency in Panipat.</p>
-        <div class="social-services">
-          <span class="social-service">Motion Graphics</span>
-          <span class="social-service">Reels Production</span>
-          <span class="social-service">Brand Storytelling</span>
-          <span class="social-service">Content Strategy</span>
+    <!-- ══════════════════════════════════════════════════════════════
+         SECTION 04: CLIENTS & SOCIAL CHANNELS (#clients)
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="clients-section" id="clients">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="sec-header-left">
+            <span class="swiss-stamp lime">LIVE SOCIAL FEEDS</span>
+            <h2 class="sec-title">SEE THE WORK IN THE FEED</h2>
+          </div>
+          <p class="sec-desc">
+            Direct links to live Instagram client accounts featuring my graphic design, social media direction, and campaign assets.
+          </p>
         </div>
-        <a href="https://www.instagram.com/cyberbeastmedia.panipat?igsh=MWlocjJybWNjeXkyMw==" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
-      </div>
 
-      <div class="social-card fade-up" style="transition-delay:0.1s">
-        <img src="image/NikkiJewelsDiamond.jpeg" alt="Nikki Jewels premium content showcase" class="social-card-image">
-        <div class="social-platform">Luxury Jewellery · Instagram</div>
-        <h3>Nikki Jewels — Premium Brand Presence</h3>
-        <p>Crafted a premium content strategy for a jewellery brand — cinematic product reels, aspirational carousel storytelling, and a luxurious visual language to attract high-intent buyers. Managed end-to-end from strategy to publishing.</p>
-        <div class="social-services">
-          <span class="social-service">Cinematic Reels</span>
-          <span class="social-service">Product Photography Edit</span>
-          <span class="social-service">Community Mgmt</span>
-          <span class="social-service">Caption Writing</span>
+        <div class="clients-grid">
+          <!-- Client 1 -->
+          <a class="client-feed-card" href="https://www.instagram.com/mysteryholidays/" target="_blank" rel="noopener">
+            <span class="client-handle">@mysteryholidays ↗</span>
+            <h3 class="client-name">Mystery Holidays</h3>
+            <span class="client-category">Surprise Travel &amp; Vacation Campaigns</span>
+          </a>
+
+          <!-- Client 2 -->
+          <a class="client-feed-card" href="https://www.instagram.com/viva_holidays/" target="_blank" rel="noopener">
+            <span class="client-handle">@viva_holidays ↗</span>
+            <h3 class="client-name">Viva Holidays</h3>
+            <span class="client-category">Luxury Cruise &amp; Itinerary Visuals</span>
+          </a>
+
+          <!-- Client 3 -->
+          <a class="client-feed-card" href="https://www.instagram.com/cyberbeastmedia.panipat/" target="_blank" rel="noopener">
+            <span class="client-handle">@cyberbeastmedia.panipat ↗</span>
+            <h3 class="client-name">CyberBeast Media</h3>
+            <span class="client-category">Brand Identity &amp; Digital Marketing</span>
+          </a>
+
+          <!-- Client 4 -->
+          <a class="client-feed-card" href="https://www.instagram.com/nikkijewelsofficial/" target="_blank" rel="noopener">
+            <span class="client-handle">@nikkijewelsofficial ↗</span>
+            <h3 class="client-name">Nikki Jewels Official</h3>
+            <span class="client-category">Luxury Diamond &amp; Gold Jewellery Visuals</span>
+          </a>
+
+          <!-- Client 5 -->
+          <a class="client-feed-card" href="https://www.instagram.com/herbalayurveda123/" target="_blank" rel="noopener">
+            <span class="client-handle">@herbalayurveda123 ↗</span>
+            <h3 class="client-name">Herbal Ayurveda 123</h3>
+            <span class="client-category">Health, Wellness &amp; E-Commerce Content</span>
+          </a>
+
+          <!-- Client 6 Contact Prompt -->
+          <div class="client-feed-card" style="background: var(--ink); color: var(--white);">
+            <span class="client-handle" style="color: var(--lime);">YOUR BRAND NEXT?</span>
+            <h3 class="client-name" style="color: var(--white);">Scale Your Feed</h3>
+            <a href="#contact" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--orange); font-weight: 700; margin-top: 4px;">Get in touch today ↗</a>
+          </div>
         </div>
-        <a href="https://www.instagram.com/nikkijewelsofficial?igsh=MTk3eXoyZzdjcnh3OA==" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
       </div>
+    </section>
 
-      <div class="social-card fade-up" style="transition-delay:0.2s">
-        <img src="image/Herbal.jpeg" alt="Herbal Ayurveda social media content" class="social-card-image">
-        <div class="social-platform">Wellness & Ayurveda · Instagram</div>
-        <h3>Herbal Ayurveda — Organic Growth from Scratch</h3>
-        <p>Built a wellness brand's Instagram presence from zero. Educational carousels on Ayurvedic remedies, AI-assisted video content, and a warm, trust-driven aesthetic. Result: consistent follower growth and a loyal, engaged community.</p>
-        <div class="social-services">
-          <span class="social-service">AI Video Content</span>
-          <span class="social-service">Educational Carousels</span>
-          <span class="social-service">Growth Strategy</span>
-          <span class="social-service">Brand Aesthetic</span>
+    <!-- ══════════════════════════════════════════════════════════════
+         SECTION 05: EXPERIENCE & SPECIALIZED SKILLS (#experience)
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="experience-section" id="experience">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="sec-header-left">
+            <span class="swiss-stamp orange">CAREER CHRONOLOGY</span>
+            <h2 class="sec-title">WHERE I’VE WORKED</h2>
+          </div>
+          <p class="sec-desc">
+            3+ years of professional design execution leading UI/UX systems, brand collateral, and AI-assisted creative campaigns.
+          </p>
         </div>
-        <a href="https://www.instagram.com/herbalayurveda123?igsh=NjIyN2g2cXlneXI5" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
-      </div>
 
-      <div class="social-card fade-up" style="transition-delay:0.3s">
-        <img src="image/mystery_travelhacks.jpeg" alt="Mystery Holidays travel hacks post" class="social-card-image">
-        <div class="social-platform">Travel & Tourism · Instagram</div>
-        <h3>Mystery Holidays — Travel Brand Content</h3>
-        <p>Crafted destination-driven content for a travel brand — campaign creatives, myth-vs-fact educational posts, surprise-destination reveals, and seasonal offers designed to turn followers into travellers.</p>
-        <div class="social-services">
-          <span class="social-service">Carousel Posts</span>
-          <span class="social-service">Campaign Creatives</span>
-          <span class="social-service">Brand Storytelling</span>
-          <span class="social-service">Engagement Strategy</span>
+        <div class="xp-list">
+          <!-- Role 1 -->
+          <div class="xp-item">
+            <div>
+              <span class="xp-period">APR 2026 – PRESENT</span>
+            </div>
+            <div class="xp-role">
+              <h3>UI/UX Designer, Viva Holidays</h3>
+              <span class="xp-location">Noida, Uttar Pradesh</span>
+              <ul>
+                <li>Lead end-to-end UI/UX for comprehensive travel booking journeys, from discovery and itinerary planning to final checkout.</li>
+                <li>Architect and maintain a unified cross-platform design system shared across web, responsive touchpoints, and mobile.</li>
+                <li>Design high-converting marketing campaigns, promotional carousels, and AI-assisted video assets.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 2 -->
+          <div class="xp-item">
+            <div>
+              <span class="xp-period">APR 2024 – MAR 2026</span>
+            </div>
+            <div class="xp-role">
+              <h3>UI/UX Designer, JBH Tech Innovation</h3>
+              <span class="xp-location">Faridabad, Haryana</span>
+              <ul>
+                <li>Engineered wireframes, interactive user flows, and high-fidelity prototypes for client platforms and internal tools.</li>
+                <li>Led UX research and interface design for the proprietary VedifAI Learning Management System (LMS).</li>
+                <li>Produced AI-generated video content and multi-channel campaign collateral that boosted organic inbound leads.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 3 -->
+          <div class="xp-item">
+            <div>
+              <span class="xp-period">FREELANCE</span>
+            </div>
+            <div class="xp-role">
+              <h3>Graphic Designer &amp; Digital Marketing, Cyber Beast</h3>
+              <span class="xp-location">Panipat / Creative Agency</span>
+              <ul>
+                <li>Created brand visual identities, high-impact print ads, large-format hoardings, and packaging mockups.</li>
+                <li>Managed client social media handles and grew audience engagement up to +40% organically through consistent design systems.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 4 -->
+          <div class="xp-item">
+            <div>
+              <span class="xp-period">OCT 2023 – APR 2024</span>
+            </div>
+            <div class="xp-role">
+              <h3>UI/UX Design Intern, Hodor Info Tech</h3>
+              <span class="xp-location">Faridabad, Haryana</span>
+              <ul>
+                <li>Collaborated with senior engineers on wireframing, component libraries, and client dashboard user flows.</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <a href="https://www.instagram.com/mysteryholidays/" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
-      </div>
 
-      <div class="social-card fade-up" style="transition-delay:0.4s">
-        <div class="social-platform">Travel & Tourism · Instagram</div>
-        <h3>Viva Holidays — Carousel & Social Design</h3>
-        <p>Designed scroll-stopping carousel posts and brand visuals for a holiday company — travel packages, offers, and destination guides presented in a vibrant, swipe-worthy format that drives inquiries.</p>
-        <div class="social-services">
-          <span class="social-service">Carousel Post Creation</span>
-          <span class="social-service">Offer & Package Design</span>
-          <span class="social-service">Visual Identity</span>
-          <span class="social-service">Content Calendar</span>
+        <!-- Skills Quad -->
+        <div class="skills-quad">
+          <div class="skill-card">
+            <h4>01 // Core Design Tools</h4>
+            <p>Photoshop · Illustrator · InDesign · Figma · Adobe XD · Canva · CapCut · Filmora</p>
+          </div>
+          <div class="skill-card">
+            <h4>02 // AI &amp; Video Production</h4>
+            <p>Grok AI · Luma AI · Pictory · Runway · Midjourney Visual Ideation</p>
+          </div>
+          <div class="skill-card">
+            <h4>03 // Academic Education</h4>
+            <p><strong>B.Sc. Mathematics (Honors)</strong> — MDU Rohtak<br><strong>UI/UX Professional Certification</strong> — Ducat Institute</p>
+          </div>
+          <div class="skill-card">
+            <h4>04 // Languages</h4>
+            <p>English (Professional Working Proficiency) · Hindi (Native)</p>
+          </div>
         </div>
-        <a href="https://www.instagram.com/viva_holidays/" target="_blank" rel="noopener" class="social-link">View on Instagram ↗</a>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- BROCHURES & PRINT -->
-<section id="brochures">
-  <div class="projects-intro fade-up">
-    <div>
-      <div class="section-tag">Print & Layout Design</div>
-      <h2 class="section-title">Brochures &amp; <em>Collateral</em></h2>
-    </div>
-    <p>Corporate brochures, marketing flyers, and social media post collections — designed end-to-end from layout to final print-ready files.</p>
-  </div>
-  <div class="brochure-grid">
-    <div class="brochure-card fade-up">
-      <div class="brochure-format">Brochure · Print-Ready</div>
-      <h3>Moksh CAD — Corporate Brochure</h3>
-      <p>Full corporate brochure for Moksh CAD's smartsourcing services — estimation, CNC programming, CAD 2D/3D and more. Structured information hierarchy with a clean, professional layout.</p>
-      <div class="brochure-tags">
-        <span class="social-service">Layout Design</span>
-        <span class="social-service">Corporate Branding</span>
-      </div>
-      <a href="Moksh%20CAD%20-%20Brochure.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
-    </div>
+    <!-- ══════════════════════════════════════════════════════════════
+         SECTION 06: PDF ARCHIVE & BROCHURES (#collaterals)
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="pdf-section" id="collaterals">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="sec-header-left">
+            <span class="swiss-stamp orange">PRINT COLLATERALS</span>
+            <h2 class="sec-title">EDITORIAL PDF DOWNLOADS</h2>
+          </div>
+          <p class="sec-desc">
+            Download high-resolution, print-ready corporate brochures and campaign decks designed by Versha.
+          </p>
+        </div>
 
-    <div class="brochure-card fade-up" style="transition-delay:0.08s">
-      <div class="brochure-format">Brochure · Vendor Partner</div>
-      <h3>Moksh CAD × FMA — Partner Brochure</h3>
-      <p>FMA vendor-partner brochure targeting U.S. metal fabricators — offshore CAD/CNC services, value propositions, and benefits presented as a compelling B2B sales collateral.</p>
-      <div class="brochure-tags">
-        <span class="social-service">B2B Collateral</span>
-        <span class="social-service">Infographic Layout</span>
-      </div>
-      <a href="FMA%20-%20brochure.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
-    </div>
+        <div class="pdf-grid">
+          <!-- PDF 1: Moksh CAD -->
+          <div class="pdf-card">
+            <div>
+              <div class="pdf-header">
+                <span class="pdf-tag">PDF // 01</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted);">16.1 MB · B2B PRINT</span>
+              </div>
+              <h3 class="pdf-title" style="margin-top: 12px;">Moksh CAD Corporate Brochure</h3>
+              <p class="pdf-desc" style="margin-top: 8px;">Official engineering and drafting services corporate brochure with modular capability tiers.</p>
+            </div>
+            <a href="Moksh%20CAD%20-%20Brochure.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+          </div>
 
-    <div class="brochure-card fade-up" style="transition-delay:0.16s">
-      <div class="brochure-format">Brochure · Recruitment</div>
-      <h3>Moksh Recruiting — MSP Staffing Brochure</h3>
-      <p>Recruiting & IT staffing solutions brochure for MSPs — service breakdowns, trust metrics, and contact design across a cohesive, modern corporate template.</p>
-      <div class="brochure-tags">
-        <span class="social-service">Service Design</span>
-        <span class="social-service">Typography</span>
-      </div>
-      <a href="recruiting%20final-%20brochure-approved.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
-    </div>
+          <!-- PDF 2: Moksh Recruiting -->
+          <div class="pdf-card">
+            <div>
+              <div class="pdf-header">
+                <span class="pdf-tag">PDF // 02</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted);">18.3 MB · CORPORATE</span>
+              </div>
+              <h3 class="pdf-title" style="margin-top: 12px;">Moksh Recruiting Solutions</h3>
+              <p class="pdf-desc" style="margin-top: 8px;">Approved executive hiring and recruitment brochure sharing the cohesive brand system.</p>
+            </div>
+            <a href="recruiting%20final-%20brochure-approved.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+          </div>
 
-    <div class="brochure-card fade-up" style="transition-delay:0.24s">
-      <div class="brochure-format">Flyer · Restaurant</div>
-      <h3>Simmi's Cafe — Menu Flyer</h3>
-      <p>Appetite-driven menu flyer for an Indian cafe near Humber College, Etobicoke — menu categorization, promo callouts, and warm visual storytelling in a single-fold layout.</p>
-      <div class="brochure-tags">
-        <span class="social-service">Flyer Design</span>
-        <span class="social-service">Food Branding</span>
-      </div>
-      <a href="Brochure%20-%20Final%20-%20Front.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
-    </div>
+          <!-- PDF 3: Social Media Campaigns -->
+          <div class="pdf-card">
+            <div>
+              <div class="pdf-header">
+                <span class="pdf-tag">PDF // 03</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted);">23.2 MB · CAMPAIGNS</span>
+              </div>
+              <h3 class="pdf-title" style="margin-top: 12px;">Social Media Campaigns Deck</h3>
+              <p class="pdf-desc" style="margin-top: 8px;">Complete social media feed collections, promotional carousels, and seasonal campaign assets.</p>
+            </div>
+            <a href="Social%20media%20posts.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+          </div>
 
-    <div class="brochure-card fade-up" style="transition-delay:0.32s">
-      <div class="brochure-format">Collection · Social Posts</div>
-      <h3>Social Media Posts — Design Collection</h3>
-      <p>A curated compilation of social media post designs created for brand clients — feed-ready templates covering promotions, awareness, and engagement content.</p>
-      <div class="brochure-tags">
-        <span class="social-service">Post Design</span>
-        <span class="social-service">Social Templates</span>
-      </div>
-      <a href="Social%20media%20posts.pdf" target="_blank" rel="noopener" class="brochure-link">Open PDF ↗</a>
-    </div>
-  </div>
-</section>
+          <!-- PDF 4: FMA Brochure -->
+          <div class="pdf-card">
+            <div>
+              <div class="pdf-header">
+                <span class="pdf-tag">PDF // 04</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted);">5.3 MB · EDITORIAL</span>
+              </div>
+              <h3 class="pdf-title" style="margin-top: 12px;">FMA Corporate Profile</h3>
+              <p class="pdf-desc" style="margin-top: 8px;">Financial management and corporate advisory capabilities profile and service guide.</p>
+            </div>
+            <a href="FMA%20-%20brochure.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+          </div>
 
-<!-- CREATIVE SHOWCASE -->
-<section id="showcase">
-  <div class="projects-intro fade-up">
-    <div>
-      <div class="section-tag">Real Work, Real Posts</div>
-      <h2 class="section-title">Social Media <em>Showcase</em></h2>
-    </div>
-    <p>A selection of published feed creatives designed for Mystery Holidays — campaign posts, educational carousels, and seasonal offers shipped to the brand's Instagram.</p>
-  </div>
-  <div class="showcase-grid">
-    <div class="showcase-item fade-up">
-      <img src="image/mystery_travelhacks.jpeg" alt="Mystery Holidays — Travel Hacks carousel post">
-      <div class="showcase-caption">
-        <div class="showcase-brand">Mystery Holidays</div>
-        <div class="showcase-title">Travel Hacks — Carousel Post</div>
+          <!-- PDF 5: Multi-Fold Print Brochure -->
+          <div class="pdf-card">
+            <div>
+              <div class="pdf-header">
+                <span class="pdf-tag">PDF // 05</span>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted);">15.8 MB · PRINT SPECS</span>
+              </div>
+              <h3 class="pdf-title" style="margin-top: 12px;">Commercial Print Brochure</h3>
+              <p class="pdf-desc" style="margin-top: 8px;">Print-ready commercial folding brochure featuring typography hierarchy and bleed guides.</p>
+            </div>
+            <a href="Brochure%20-%20Final%20-%20Front.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="showcase-item fade-up" style="transition-delay:0.08s">
-      <img src="image/mystery_mythvsfact.jpeg" alt="Mystery Holidays — Myth vs Fact post">
-      <div class="showcase-caption">
-        <div class="showcase-brand">Mystery Holidays</div>
-        <div class="showcase-title">Myth vs. Fact — Mystery Edition</div>
-      </div>
-    </div>
-    <div class="showcase-item fade-up" style="transition-delay:0.16s">
-      <img src="image/mystery_destinations.jpeg" alt="Mystery Holidays — Last Week's Mystery Destinations post">
-      <div class="showcase-caption">
-        <div class="showcase-brand">Mystery Holidays</div>
-        <div class="showcase-title">Last Week's Mystery Destinations</div>
-      </div>
-    </div>
-    <div class="showcase-item fade-up" style="transition-delay:0.24s">
-      <img src="image/mystery_fathersday.jpeg" alt="Mystery Holidays — Father's Day offer post">
-      <div class="showcase-caption">
-        <div class="showcase-brand">Mystery Holidays</div>
-        <div class="showcase-title">Father's Day — Offer Creative</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-tag">Get In Touch</div>
-  <h2 class="section-title fade-up">Let's create<br>something <em>remarkable</em></h2>
-  <p class="contact-subtitle">Open to full-time roles, and creative collaborations. If you have a vision, I have the skills to bring it to life.</p>
-  <div class="contact-links fade-up">
-    <a href="tel:+918826725102" class="contact-link">
-      <span class="contact-link-icon">📞</span>
-      <span class="contact-link-label">Phone</span>
-      <span class="contact-link-value">+91 8826725102</span>
-    </a>
-    <a href="mailto:vershatanwar621@gmail.com" class="contact-link">
-      <span class="contact-link-icon">✉️</span>
-      <span class="contact-link-label">Email</span>
-      <span class="contact-link-value">vershatanwar621@gmail.com</span>
-    </a>
-    <!-- <a href="https://www.instagram.com/cyberbeastmedia.panipat?igsh=MWlocjJybWNjeXkyMw==" target="_blank" rel="noopener" class="contact-link">
-      <span class="contact-link-icon">📸</span>
-      <span class="contact-link-label">Instagram</span>
-      <span class="contact-link-value">View Portfolio</span>
-    </a> -->
-  </div>
-</section>
+    <!-- ══════════════════════════════════════════════════════════════
+         SECTION 07: CONTACT & CLOSING BANNER (#contact)
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="contact-section" id="contact">
+      <div class="wrap">
+        <div class="contact-inner">
+          <div>
+            <span class="swiss-stamp white">07 // LET’S WORK TOGETHER</span>
+            <h2 class="contact-heading" style="margin-top: 16px;">
+              LET’S MAKE <br>
+              SOMETHING <br>
+              MATTER.
+            </h2>
+          </div>
 
-<!-- FOOTER -->
-<footer>
-  <span>© 2025 Versha — All rights reserved</span>
-  <span>Creative Content &amp; AI Video Designer · Faridabad, IN</span>
-</footer>
+          <div class="contact-grid">
+            <div class="contact-info-list">
+              <!-- Email Tile -->
+              <a href="mailto:vershatanwar621@gmail.com" class="contact-action-card">
+                <div>
+                  <span class="contact-label">DIRECT EMAIL ADDRESS</span>
+                  <div class="contact-val">vershatanwar621@gmail.com</div>
+                </div>
+                <span class="btn-brutal primary" style="padding: 8px 14px;">SEND ✉</span>
+              </a>
 
-<script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    setTimeout(() => {
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
-    }, 60);
-  });
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.width = '20px';
-      cursor.style.height = '20px';
-      cursor.style.background = 'var(--rust)';
+              <!-- Phone Tile -->
+              <a href="tel:+918826725102" class="contact-action-card">
+                <div>
+                  <span class="contact-label">DIRECT PHONE / WHATSAPP</span>
+                  <div class="contact-val">+91 88267 25102</div>
+                </div>
+                <span class="btn-brutal orange" style="padding: 8px 14px;">CALL 📞</span>
+              </a>
+
+              <!-- Location Tile -->
+              <div class="contact-action-card">
+                <div>
+                  <span class="contact-label">HEADQUARTERS &amp; AVAILABILITY</span>
+                  <div class="contact-val" style="font-size: 1.2rem;">Faridabad, Haryana · Open to Global Remote</div>
+                </div>
+                <span class="swiss-stamp cobalt">FULL-TIME / CONTRACT</span>
+              </div>
+            </div>
+
+            <div class="contact-right-panel">
+              <h4>HAVE A BRAND TO BUILD?</h4>
+              <p>
+                Whether you need a complete packaging identity for an FMCG rollout, high-converting social media creatives, a cohesive UI/UX design system, or AI-assisted video content, let's connect and build it right.
+              </p>
+              <div style="display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap;">
+                <button class="btn-brutal primary" onclick="copyEmail()">Copy Email to Clipboard 📋</button>
+                <a href="tel:+918826725102" class="btn-brutal secondary">Call Now ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SWISS FOOTER
+       ══════════════════════════════════════════════════════════════ -->
+  <footer class="swiss-footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>
+          <strong>VERSHA TANWAR</strong> — SENIOR GRAPHIC &amp; UI/UX DESIGNER
+        </div>
+        <div>
+          FARIDABAD, HARYANA · ALL RIGHTS RESERVED © 2026
+        </div>
+        <div>
+          SWISS EDITORIAL PORTFOLIO SYSTEM
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       HIGH-RES LIGHTBOX MODAL DIALOG
+       ══════════════════════════════════════════════════════════════ -->
+  <dialog id="lightbox">
+    <div class="lightbox-card">
+      <div class="lightbox-head">
+        <span id="lbCategory">SELECTED WORK // EXHIBITION</span>
+        <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close dialog">✕</button>
+      </div>
+      <div class="lightbox-body">
+        <img id="lbImage" src="" alt="High resolution preview">
+      </div>
+      <div class="lightbox-foot">
+        <span id="lbTitle" style="font-weight: 700; color: var(--ink);">Project Artwork</span>
+        <span>CLICK OUTSIDE OR PRESS ESC TO CLOSE [✕]</span>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Toast notification -->
+  <div id="copy-toast">EMAIL COPIED TO CLIPBOARD: vershatanwar621@gmail.com</div>
+
+  <script>
+    // Lightbox Controls
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImage');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbCategory = document.getElementById('lbCategory');
+
+    function openLightbox(src, title, category) {
+      lbImg.src = src;
+      lbImg.alt = title;
+      lbTitle.textContent = title;
+      lbCategory.textContent = category || 'SELECTED WORK // EXHIBITION';
+      lb.showModal();
+    }
+
+    function closeLightbox() {
+      lb.close();
+    }
+
+    // Close on backdrop click
+    lb.addEventListener('click', (e) => {
+      const rect = lb.getBoundingClientRect();
+      const inDialog = (
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+      );
+      if (!inDialog) {
+        lb.close();
+      }
     });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.width = '12px';
-      cursor.style.height = '12px';
-      cursor.style.background = 'var(--gold)';
-    });
-  });
 
-  // Scroll animations
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+    // Mobile Nav Toggle
+    function toggleMobileNav() {
+      const drawer = document.getElementById('mobileDrawer');
+      drawer.classList.toggle('open');
+    }
+    document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileNav);
+
+    // Email Copy to Clipboard
+    function copyEmail() {
+      const email = 'vershatanwar621@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const toast = document.getElementById('copy-toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }).catch(err => {
+        prompt('Copy email address:', email);
+      });
+    }
+
+    // Work Filter
+    function filterCases(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cases = document.querySelectorAll('.case-block');
+      cases.forEach(c => {
+        if (category === 'all' || c.getAttribute('data-category') === category) {
+          c.style.display = 'block';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
