@@ -58,18 +58,31 @@
       background-color: var(--paper);
       color: var(--ink);
       scroll-padding-top: 72px;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden !important;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
-      max-width: 100vw;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
       font-family: var(--font-grotesk);
       background-color: var(--paper);
       color: var(--ink);
-      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden !important;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      position: relative;
+    }
+
+    main, section, header, footer {
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+      overflow-x: hidden;
     }
 
     ::selection {
@@ -343,6 +356,9 @@
       letter-spacing: -0.02em;
       margin-bottom: 12px;
       color: var(--lime);
+      word-break: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
     .hero-poster-box p {
       font-size: 0.95rem;
@@ -1001,6 +1017,9 @@
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: var(--lime);
+      word-break: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
     .contact-grid {
       display: grid;
@@ -1056,6 +1075,9 @@
       font-size: 1.3rem;
       text-transform: uppercase;
       color: var(--lime);
+      word-break: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
     .contact-right-panel p {
       font-size: 1rem;
@@ -1296,30 +1318,34 @@
     /* ── 5. MOBILE & SMARTPHONES (max-width: 768px) ── */
     @media (max-width: 768px) {
       html, body {
-      max-width: 100vw;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-        overflow-x: hidden;
-        max-width: 100vw;
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
       }
       body {
-      max-width: 100vw;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
         font-size: 16px;
       }
       .wrap {
-        padding-left: max(18px, env(safe-area-inset-left));
-        padding-right: max(18px, env(safe-area-inset-right));
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding-left: max(14px, env(safe-area-inset-left)) !important;
+        padding-right: max(14px, env(safe-area-inset-right)) !important;
+        box-sizing: border-box !important;
       }
       header.swiss-nav {
+        width: 100% !important;
+        max-width: 100vw !important;
         padding-top: env(safe-area-inset-top, 0px);
+        box-sizing: border-box !important;
       }
       .nav-inner {
+        width: 100% !important;
         height: 60px;
+        box-sizing: border-box !important;
       }
       .brand-mark {
-        font-size: 1.15rem;
+        font-size: clamp(1rem, 4.2vw, 1.2rem) !important;
+        gap: 8px !important;
       }
       .nav-links {
         display: none !important;
@@ -1334,18 +1360,22 @@
         font-size: 0.8rem;
         cursor: pointer;
         touch-action: manipulation;
+        flex-shrink: 0;
       }
 
       /* Mobile Navigation Drawer */
       .mobile-drawer {
+        width: 100% !important;
+        max-width: 100vw !important;
         background: var(--paper);
         border-bottom: var(--border-heavy);
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-        padding: 16px 18px;
+        padding: 16px 14px;
         gap: 10px;
         max-height: calc(100vh - 64px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        box-sizing: border-box !important;
       }
       .mobile-drawer a {
         font-size: 1.05rem;
@@ -1367,38 +1397,52 @@
 
       /* Section Spacings */
       section {
-        padding: 56px 0;
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 50px 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
       }
       .hero-section {
-        padding: 36px 0 32px;
+        padding: 32px 0 28px !important;
       }
       .sec-header {
-        margin-bottom: 28px;
-        padding-bottom: 16px;
-        gap: 12px;
+        margin-bottom: 24px;
+        padding-bottom: 14px;
+        gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
       }
       .sec-title {
-        font-size: clamp(28px, 7vw, 44px);
+        font-size: clamp(24px, 6.5vw, 38px) !important;
+        line-height: 1.08 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
       }
       .sec-desc {
         font-size: 0.85rem;
+        word-break: break-word;
       }
 
       /* Hero Section */
       .hero-title {
-        font-size: clamp(36px, 9vw, 54px);
-        line-height: 1;
+        font-size: clamp(30px, 8.5vw, 48px) !important;
+        line-height: 1.02 !important;
         margin: 6px 0 12px;
-        word-break: break-word;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
       }
       .hero-title .accent-word {
-        padding: 2px 8px;
-        box-shadow: 3px 3px 0px var(--ink);
+        padding: 2px 6px;
+        box-shadow: 2px 2px 0px var(--ink);
         transform: rotate(-0.5deg);
+        display: inline-block;
+        max-width: 100%;
       }
       .hero-lead {
-        font-size: 1.05rem;
+        font-size: 1rem;
         line-height: 1.55;
+        word-break: break-word;
       }
       .hero-actions-row {
         flex-direction: column;
@@ -1409,42 +1453,48 @@
         width: 100%;
         justify-content: center;
         min-height: 48px;
-        padding: 14px 20px;
+        padding: 12px 18px;
         touch-action: manipulation;
+        font-size: 0.88rem;
       }
       .hero-stats-row {
         grid-template-columns: 1fr;
         gap: 10px;
         margin-top: 14px;
-        padding-top: 18px;
+        padding-top: 16px;
       }
       .hero-stat-card {
-        padding: 14px;
+        padding: 12px 14px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        box-sizing: border-box;
       }
       .hero-stat-card strong {
-        font-size: 28px;
+        font-size: 26px;
       }
       .hero-stat-card span {
         margin-top: 0;
         text-align: right;
         max-width: 60%;
+        font-size: 0.72rem;
       }
 
       /* Hero Poster Box */
       .hero-poster-box {
-        padding: 24px 18px;
+        padding: 22px 16px !important;
+        box-sizing: border-box !important;
       }
       .hero-poster-box::before {
-        display: none;
+        display: none !important;
       }
       .hero-poster-box h3 {
-        font-size: 1.35rem;
+        font-size: 1.25rem !important;
+        word-break: break-word;
       }
       .hero-poster-box p {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
+        word-break: break-word;
       }
       .hero-disciplines {
         gap: 6px;
@@ -1456,39 +1506,57 @@
 
       /* About Section */
       .about-summary-card {
-        padding: 20px 16px;
-        gap: 20px;
-        margin-bottom: 24px;
+        padding: 18px 14px !important;
+        gap: 18px !important;
+        margin-bottom: 20px !important;
+        box-sizing: border-box !important;
       }
       .about-summary-text {
-        font-size: 1rem;
-        line-height: 1.6;
+        font-size: 0.96rem !important;
+        line-height: 1.6 !important;
+        word-break: break-word;
+      }
+      .about-pillar-box {
+        padding: 12px 14px;
+        word-break: break-word;
       }
       .core-skills-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
       }
       .core-skills-grid .core-skill-card:nth-child(3) {
-        grid-column: span 1;
+        grid-column: span 1 !important;
       }
       .core-skill-card {
-        padding: 22px 18px;
-        gap: 16px;
+        padding: 20px 14px !important;
+        gap: 14px !important;
+        box-sizing: border-box !important;
       }
       .core-skill-card h3 {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
+      }
+      .skill-pill {
+        font-size: 0.72rem;
+        padding: 4px 9px;
+        word-break: break-word;
+      }
+      .tool-pill {
+        font-size: 0.75rem;
+        padding: 5px 10px;
       }
 
-      /* Filter Bar - Native Touch Swiping on iOS & Android */
+      /* Filter Bar - Native Touch Swiping */
       .filter-bar {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        margin: 0 -18px 24px;
-        padding: 0 18px 8px;
+        margin: 0 -14px 20px;
+        padding: 0 14px 8px;
         gap: 8px;
+        width: calc(100% + 28px);
+        box-sizing: border-box;
       }
       .filter-bar::-webkit-scrollbar {
         display: none;
@@ -1496,224 +1564,260 @@
       .filter-btn {
         flex-shrink: 0;
         white-space: nowrap;
-        padding: 8px 14px;
-        font-size: 0.75rem;
+        padding: 8px 12px;
+        font-size: 0.74rem;
         min-height: 38px;
         touch-action: manipulation;
       }
 
       /* Case Blocks */
       .cases-container {
-        gap: 36px;
+        gap: 32px !important;
       }
       .case-block {
-        padding: 20px 14px;
-        box-shadow: 4px 4px 0px var(--ink);
-      }
-      .case-block:hover {
-        box-shadow: 4px 4px 0px var(--ink);
-        transform: none;
+        padding: 18px 12px !important;
+        box-shadow: 3px 3px 0px var(--ink) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
       }
       .case-meta {
-        gap: 14px;
-        margin-bottom: 16px;
+        gap: 12px !important;
+        margin-bottom: 14px !important;
       }
       .case-title {
-        font-size: clamp(22px, 5.8vw, 30px);
+        font-size: clamp(20px, 5.5vw, 28px) !important;
+        word-break: break-word !important;
       }
       .case-desc {
-        font-size: 0.95rem;
-        line-height: 1.55;
+        font-size: 0.92rem !important;
+        line-height: 1.55 !important;
+        word-break: break-word;
       }
       .case-swatches {
         gap: 8px;
       }
       .swatch-circle {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
       }
       .grid-4-frames {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
       }
       .grid-3-frames {
-        grid-template-columns: 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
       }
       .grid-3-frames .zoom-frame:nth-child(3) {
-        grid-column: span 1;
+        grid-column: span 1 !important;
       }
       .zoom-frame {
         box-shadow: 2px 2px 0px var(--ink);
         touch-action: manipulation;
       }
-      .zoom-frame:hover {
-        transform: none;
-        box-shadow: 2px 2px 0px var(--ink);
-      }
       .zoom-frame-badge {
-        font-size: 0.6rem;
-        padding: 2px 5px;
-        bottom: 5px;
-        right: 5px;
+        font-size: 0.58rem;
+        padding: 2px 4px;
+        bottom: 4px;
+        right: 4px;
       }
 
       /* Websites & Products */
       .sites-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
       }
       .site-card {
-        padding: 18px;
-        box-shadow: 3px 3px 0px var(--ink);
-      }
-      .site-card:hover {
-        transform: none;
+        padding: 16px !important;
+        box-shadow: 3px 3px 0px var(--ink) !important;
+        box-sizing: border-box !important;
       }
       .site-logo-frame {
-        height: 85px;
-        padding: 10px;
+        height: 80px !important;
+        padding: 8px !important;
       }
       .site-card-title {
-        font-size: 1.2rem;
+        font-size: 1.15rem !important;
       }
 
       /* Principles & Craft */
       .craft-card {
-        padding: 22px 18px;
-        box-shadow: 4px 4px 0px var(--ink);
+        padding: 20px 14px !important;
+        box-shadow: 3px 3px 0px var(--ink) !important;
+        box-sizing: border-box !important;
       }
       .craft-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.25rem !important;
       }
       .h1-demo {
-        font-size: 1.4rem;
+        font-size: 1.3rem !important;
       }
       .palette-ratio-bar {
-        height: 48px;
+        height: 44px !important;
       }
       .tp-huge {
-        font-size: 2.8rem;
+        font-size: 2.5rem !important;
       }
 
       /* Clients & Feeds */
       .clients-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
       }
       .client-feed-card {
-        padding: 18px;
-      }
-      .client-feed-card:hover {
-        transform: none;
+        padding: 16px !important;
+        box-sizing: border-box !important;
       }
 
       /* Experience */
       .xp-list {
-        gap: 16px;
-        margin-bottom: 32px;
+        gap: 14px !important;
+        margin-bottom: 28px !important;
       }
       .xp-item {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 18px 16px;
-        box-shadow: 3px 3px 0px var(--ink);
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        padding: 16px 14px !important;
+        box-shadow: 3px 3px 0px var(--ink) !important;
+        box-sizing: border-box !important;
       }
       .xp-role h3 {
-        font-size: 1.2rem;
+        font-size: 1.15rem !important;
+        word-break: break-word;
       }
       .xp-role ul {
-        font-size: 0.9rem;
-        padding-left: 16px;
+        font-size: 0.88rem !important;
+        padding-left: 14px !important;
       }
       .skills-quad {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
       }
       .skill-card {
-        padding: 18px 16px;
+        padding: 16px 14px !important;
+        box-sizing: border-box !important;
       }
 
       /* PDF Downloads */
       .pdf-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
       }
       .pdf-card {
-        padding: 20px 16px;
-        box-shadow: 3px 3px 0px var(--ink);
-      }
-      .pdf-card:hover {
-        transform: none;
+        padding: 18px 14px !important;
+        box-shadow: 3px 3px 0px var(--ink) !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
       }
       .pdf-title {
-        font-size: 1.15rem;
+        font-size: 1.1rem !important;
+        word-break: break-word;
+      }
+      .pdf-desc {
+        word-break: break-word;
       }
       .pdf-btn {
-        width: 100%;
-        min-height: 46px;
-        font-size: 0.82rem;
+        width: 100% !important;
+        min-height: 46px !important;
+        font-size: 0.82rem !important;
         touch-action: manipulation;
+        justify-content: center !important;
       }
 
-      /* Contact Section */
+      /* Contact Section - 100% Overflow Proof */
       .contact-section {
-        padding: 60px 0;
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 50px 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+      }
+      .contact-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
       }
       .contact-heading {
-        font-size: clamp(34px, 9.5vw, 56px);
-        line-height: 0.98;
+        font-size: clamp(26px, 7.8vw, 38px) !important;
+        line-height: 1.05 !important;
+        letter-spacing: -0.02em !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+        margin-top: 14px !important;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      .contact-info-list {
+        width: 100% !important;
+        gap: 14px !important;
+        box-sizing: border-box !important;
       }
       .contact-action-card {
-        padding: 18px 16px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        padding: 16px 14px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
       }
-      .contact-action-card .btn-brutal {
-        width: 100%;
-        justify-content: center;
+      .contact-action-card .btn-brutal,
+      .contact-action-card .swiss-stamp {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
       }
       .contact-val {
-        font-size: 1.15rem;
-        word-break: break-all;
+        font-size: 1.02rem !important;
+        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
+        line-height: 1.35 !important;
       }
       .contact-right-panel {
-        padding: 22px 18px;
+        padding: 20px 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       /* Footer */
       footer.swiss-footer {
-        padding: 28px 0 env(safe-area-inset-bottom, 20px);
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 24px 0 env(safe-area-inset-bottom, 20px) !important;
+        box-sizing: border-box !important;
       }
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
-        font-size: 0.75rem;
+        gap: 10px;
+        font-size: 0.72rem;
       }
 
       /* Lightbox Modal for Mobile/iOS */
       dialog#lightbox {
-        max-width: 96vw;
-        max-height: 94vh;
+        max-width: 95vw !important;
+        max-height: 94vh !important;
       }
       .lightbox-card {
-        max-width: 96vw;
-        box-shadow: 6px 6px 0px var(--ink);
+        max-width: 95vw !important;
+        box-shadow: 4px 4px 0px var(--ink);
       }
       .lightbox-body {
-      max-width: 100vw;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-        max-height: 58vh;
-        padding: 8px;
+        max-height: 56vh;
+        padding: 6px;
       }
       .lightbox-body img {
-        max-height: 55vh;
+        max-height: 54vh;
       }
       .lightbox-foot {
-        font-size: 0.7rem;
+        font-size: 0.68rem;
         flex-direction: column;
         align-items: flex-start;
         gap: 4px;
@@ -2778,7 +2882,7 @@
               <h3 class="pdf-title" style="margin-top: 12px;">Moksh CAD Corporate Brochure</h3>
               <p class="pdf-desc" style="margin-top: 8px;">Official engineering and drafting services corporate brochure with modular capability tiers.</p>
             </div>
-            <a href="Moksh%20CAD%20-%20Brochure.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+            <a href="Moksh%20CAD%20-%20Brochure.pdf" class="pdf-btn" download>Download PDF ↓</a>
           </div>
 
           <!-- PDF 2: Moksh Recruiting -->
@@ -2791,7 +2895,7 @@
               <h3 class="pdf-title" style="margin-top: 12px;">Moksh Recruiting Solutions</h3>
               <p class="pdf-desc" style="margin-top: 8px;">Approved executive hiring and recruitment brochure sharing the cohesive brand system.</p>
             </div>
-            <a href="recruiting%20final-%20brochure-approved.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+            <a href="recruiting%20final-%20brochure-approved.pdf" class="pdf-btn" download>Download PDF ↓</a>
           </div>
 
           <!-- PDF 3: Social Media Campaigns -->
@@ -2804,7 +2908,7 @@
               <h3 class="pdf-title" style="margin-top: 12px;">Social Media Campaigns Deck</h3>
               <p class="pdf-desc" style="margin-top: 8px;">Complete social media feed collections, promotional carousels, and seasonal campaign assets.</p>
             </div>
-            <a href="Social%20media%20posts.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+            <a href="Social%20media%20posts.pdf" class="pdf-btn" download>Download PDF ↓</a>
           </div>
 
           <!-- PDF 4: FMA Brochure -->
@@ -2817,7 +2921,7 @@
               <h3 class="pdf-title" style="margin-top: 12px;">FMA Corporate Profile</h3>
               <p class="pdf-desc" style="margin-top: 8px;">Financial management and corporate advisory capabilities profile and service guide.</p>
             </div>
-            <a href="FMA%20-%20brochure.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+            <a href="FMA%20-%20brochure.pdf" class="pdf-btn" download>Download PDF ↓</a>
           </div>
 
           <!-- PDF 5: Multi-Fold Print Brochure -->
@@ -2830,7 +2934,7 @@
               <h3 class="pdf-title" style="margin-top: 12px;">Commercial Print Brochure</h3>
               <p class="pdf-desc" style="margin-top: 8px;">Print-ready commercial folding brochure featuring typography hierarchy and bleed guides.</p>
             </div>
-            <a href="Brochure%20-%20Final%20-%20Front.pdf" class="pdf-btn" download>Download PDF 🠓</a>
+            <a href="Brochure%20-%20Final%20-%20Front.pdf" class="pdf-btn" download>Download PDF ↓</a>
           </div>
         </div>
       </div>
